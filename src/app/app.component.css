@@ -1,0 +1,67 @@
+  .body-top{
+    position:absolute;
+    width: 100%;
+    -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s;
+    height: 410px;
+
+    -webkit-transition:width 300ms ease-in-out, height 300ms ease-in-out;
+    -moz-transition:width 300ms ease-in-out, height 300ms ease-in-out;
+    -o-transition:width 300ms ease-in-out, height 300ms ease-in-out;
+    transition:width 300ms ease-in-out, height 300ms ease-in-out;
+
+	  background: #9999ff;
+    background: -webkit-linear-gradient(left top, #9999ff, #2cb5e8); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, #9999ff, #2cb5e8); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #9999ff, #2cb5e8); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, #9999ff, #2cb5e8); /* Standard syntax */      	
+  
+  }
+  @-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}  
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+  .transition-element{
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
+
+  }
+  agm-map {
+    height: 1300px;
+  }
+
+  .compact-container{
+    background-color: #e2e2e2;    
+    overflow:scroll; 
+    height:100%;
+  } 
+  .fixed-top{
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+  }
+  .tab-link{
+    color:grey;
+    font-style: oblique;
+    font-size: 16px;
+    margin:10px;
+  } 
+  .navbar-link{
+    width:97%;
+
+    z-index: 1000;
+    position:absolute;
+  }
+  .right{
+    float: right;
+  } 
+  .left{
+    float: left;
+  } 
