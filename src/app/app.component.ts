@@ -6,6 +6,8 @@ import { AgmCoreModule } from '@agm/core';
 import { WindowService } from './services/window.service';
 
 import { GeolocationService } from '../app/services/geolocation.service';
+import { PostComponent } from './components/post/post.component';
+import { Post,MetaData } from './models/post';
 
 @Component({
   selector: 'app-root',
@@ -51,8 +53,23 @@ export class AppComponent implements OnInit {
     lng: number = -3.669023;  
     zoom: number = 110;  
     positionCords = {};
-  
 
+    
+    metadata1 : MetaData={type:"image", link:"http://www.lovethispic.com/uploaded_images/247074-Cute-Little-Bunny.jpg"};
+    metadata2 : MetaData={type:"video", link:"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"};
+    
+    mockPost: Post={
+        id: "1",
+        title: "post test",
+        info: "This is the post test infoooo",
+        metadata: [ this.metadata1, this.metadata2],
+        userid: "user1",
+        date: "1501699582462",
+        category: "cat1",
+        subcategory1: "cat2",
+        subcategory2: "cat3"
+    }
+   
     // Center map. Required.
 
     // MapOptions object specification.

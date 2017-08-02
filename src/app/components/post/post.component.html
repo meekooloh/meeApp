@@ -1,0 +1,27 @@
+<div class="post-container"  *ngIf="post">
+	<app-nav-filter
+		[cat]="post.category"
+		[cat1]="post.subcategory1"
+		[cat2]="post.subcategory2"
+		[cat3]="post.subcategory3"
+		[cat4]="post.subcategory4"
+		[cat5]="post.subcategory5"
+	>
+	</app-nav-filter>
+	<app-user-date-info
+		[user]="post.userid"
+		[date]="post.date"
+		>
+	</app-user-date-info>
+	<h1>
+	  	{{post.title}}
+	</h1>
+	<span>
+		{{post.info}}
+	</span>
+	<app-metadata-displayer
+		[link]="post.metadata"
+	>
+	</app-metadata-displayer>
+
+</div>

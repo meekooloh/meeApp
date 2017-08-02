@@ -1,0 +1,81 @@
+@import './colors'
+@import './typography'
+
+// https://www.muicss.com/docs/v1/css-js/buttons
+.button-aspect
+  text-transform: uppercase
+  transition: all 0.2s ease-in-out
+  display: inline-block
+  margin-bottom: 6px
+  border: none
+  border-radius: 2px
+  cursor: pointer
+  text-align: center
+  vertical-align: middle
+  white-space: nowrap
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+  letter-spacing: 0.03em
+  position: relative
+  overflow: hidden
+  box-shadow: $full-shadow
+  color: $white
+  font-size: 10px
+  padding: 0
+  height: 14px
+  line-height: 14px
+  width: 20px
+  background: $marine-blue-shade
+
+.primary
+  background: $marine-blue
+  color: $white
+  &[disabled], &.disabled
+    background: $marine-blue-shade
+
+.secondary
+  color: $bluey-grey
+  &[disabled], &.disabled
+    color: $bluey-grey-shade
+
+.accent
+  color: $pumpkin
+  text-transform: none
+  vertical-align: middle
+  font-weight: 100
+
+.relative-wrapper
+  position: relative
+
+.prompt
+  position: absolute
+  z-index: 99
+  background: $white-light
+  min-width: 21.429rem
+  padding: 2.3571rem
+  box-shadow: $right-shadow
+  text-transform: uppercase
+  text-align: left
+
+  .prompt-header
+    font-size: $font-size-title
+    margin-top: -.5rem
+
+    .prompt-header-icon
+      width: 45px !important
+      height: 45px !important
+      color: $bluey-grey
+      margin-left: -5px
+
+    .prompt-header-caption
+      color: $marine-blue-shade
+
+  .prompt-body
+    color: $marine-blue
+    font-weight: $font-weight-medium
+    padding: .84rem 0 1.3rem
+
+  .prompt-actions
+    text-align: right

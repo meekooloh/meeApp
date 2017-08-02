@@ -1,0 +1,195 @@
+@import './colors';
+@import './typography';
+
+// Container elements
+// https://dl.dropboxusercontent.com/u/73672306/BEEVA/Gas_Natural/Pantallas/GE_Elementos_contenedores.html
+
+$wrapper-bg: #FFF;
+$wrapper-border: #999;
+$wrapper-shadow: rgba(#CCC, .5);
+$wrapper-fixed-width: 934px;
+
+$wrapper-header-bg: #F5F5F5;
+$wrapper-header-border: #F7F7F7;
+$wrapper-header-inner-shadow: #FFF;
+$wrapper-header-outer-shadow: #E4E4E4;
+$wrapper-header-padding: 0 15px 0 20px;
+$wrapper-header-fixed-height: 58px;
+
+$wrapper-body-padding: 30px 20px;
+
+// $wrapper-footer-height: 70px;
+$wrapper-footer-separator: #999;
+$wrapper-footer-padding: 20px;
+
+@mixin floating-wrapper($width: dynamic, $positioning: aboslute) {
+  background: $wrapper-bg;
+  border: 2px solid $wrapper-border;
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px $wrapper-shadow;
+  padding: 1px;
+  margin-top: 2em;
+  max-height: 93%;
+  @if $width == fixed {
+    width: $wrapper-fixed-width;
+    @if $positioning == absolute {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      margin-left: $wrapper-fixed-width / -2
+    }
+  }
+}
+
+@mixin floating-wrapper-header($height: dynamic) {
+  background: $wrapper-header-bg;
+  border-bottom: 1px solid $wrapper-header-border;
+  box-shadow: inset 0 1px 1px $wrapper-header-inner-shadow,
+              0 2px 2px $wrapper-header-outer-shadow;
+  padding: $wrapper-header-padding;
+  overflow: hidden;
+  @if $height == fixed {
+    height: $wrapper-header-fixed-height;
+  }
+}
+
+@mixin floating-wrapper-header-title() {
+  margin-top: 22px;
+  float: left;
+  @include title-container();
+}
+
+@mixin floating-wrapper-header-actions() {
+  float: right;
+  margin-top: 18px;
+
+  // & > *:last-child::before {
+  //   content: '';
+  //   display: inline-block;
+  //   height: 20px;
+  //   width: 1px;
+  //   background: $esir-gray-dark;
+  //   vertical-align: middle;
+  //   margin-right: 10px;
+  // }
+
+  & > *:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  & > *{
+    color: $esir-gray-dark;
+    &:hover {
+      color: $esir-pumpkin;
+    }
+  }
+}
+
+@mixin floating-wrapper-body() {
+  padding: $wrapper-body-padding;
+}
+
+@mixin floating-wrapper-footer() {
+  // height: $wrapper-footer-height;
+  border-top: 1px solid $wrapper-footer-separator;
+  padding: $wrapper-footer-padding;
+}
+
+$confirm-popup-width: 340px;
+$confirm-popup-vertical-padding: 20px;
+
+@mixin confirm-popup() {
+  width: $confirm-popup-width - $confirm-popup-vertical-padding * 2;
+  background: $wrapper-bg;
+  border: 2px solid $wrapper-border;
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px $wrapper-shadow;
+  padding: 30px $confirm-popup-vertical-padding 20px;
+  position: relative;
+
+  &::after {
+    content: '';
+    border: 4px solid transparent;
+    border-top-color: $wrapper-border;
+    position: absolute;
+    bottom: -10px;
+    left: calc(50% - 2px);
+  }
+}
+
+@mixin vignette($padding) {
+  border: 2px solid #E6E6E6;
+  box-shadow: 0 0 0 5px #EEEEEE;
+  display: inline-block;
+  border-radius: 50%;
+  padding: $padding;
+  position: relative;
+
+  &::after {
+    content: '';
+    border: 5px solid transparent;
+    border-top-color: #EEEEEE;
+    bottom: -17px;
+    position: absolute;
+    left: calc(50% - 5px);
+  }
+}
+
+@mixin grid-wrapper {
+  height: calc(100% - 148px);
+  width: calc(100% - 6px);
+  position: relative;
+}
+
+@mixin grid-wrapper-reduced {
+  height: calc(100% - 157px);
+  width: calc(100% - 6px);
+  position: relative;
+}
+
+@mixin grid-wrapper-expanded {
+  height: calc(100% - 143px);
+  width: calc(100% - 6px);
+  position: relative;
+}
+
+@mixin wrapper-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, .8);
+  display: flex;
+  flex-direction: column;
+  &::after,
+  &::before {
+    content: '';
+    flex: 1;
+  }
+  .loading-wrapper {
+    flex: 1;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    &:not(.loading-first-load) {
+      border: 1px solid #e6e6e6;
+      background: #fff;
+    }
+  }
+  .vignette {
+    margin: 20px 0 10px;
+
+    @include vignette(35px);
+    .vignette-icon {
+      color: #bdbdbd;
+    }
+  }
+  .loading-title {
+    @include title-menu();
+  }
+  .loading-desc {
+    @include text();
+  }
+}

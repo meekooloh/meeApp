@@ -1,0 +1,117 @@
+@import './colors'
+
+// -- nuevo:
+
+$helvetica-neue: 'Helvetica Neue', Helvetica, Arial, sans-serif
+$arial: Arial, sans-serif
+
+=title-login()
+  font-size: 24px
+  font-family: $helvetica-neue
+  color: $esir-gray-darkest
+  font-weight: normal
+
+=title-main()
+  font-size: 20px
+  font-family: $helvetica-neue
+  color: $esir-gray-darkest
+  font-weight: bold
+
+=title-container()
+  font-size: 18px
+  font-family: $helvetica-neue
+  color: $esir-gray-darkest
+  font-weight: bold
+
+=title-menu()
+  font-size: 16px
+  font-family: $helvetica-neue
+  color: $esir-gray-darkest
+  font-weight: bold
+
+=subtitle-login()
+  font-size: 14px
+  font-family: $helvetica-neue
+  color: $esir-gray-darkest
+  font-weight: normal
+
+=subtitle-menu()
+  font-size: 14px
+  font-family: $helvetica-neue
+  color: $esir-gray-darkest
+  font-weight: bold
+
+=text()
+  font-size: 13px
+  font-family: $arial
+  color: $esir-gray-darkest
+  font-weight: normal
+
+=input-label()
+  font-size: 13px
+  font-family: $arial
+  color: $esir-gray-darkest
+  font-weight: bold
+
+=select-option-list()
+  font-size: 11px
+  font-family: $arial
+  color: $esir-gray-darkest
+  font-weight: normal
+
+=text-medium-bold()
+  font-size: 11px
+  font-family: $arial
+  color: $esir-gray-darkest
+  font-weight: bold
+
+=link()
+  font-size: 13px
+  font-family: $arial
+  color: $esir-pumpkin
+  &:hover
+    cursor: pointer
+    text-decoration: underline
+
+
+=link-container()
+  +link()
+
+  font-size: 14px
+  font-weight: bold
+
+=icon-link()
+  color: $esir-gray-dark
+  cursor: pointer
+  &:hover
+    color: $esir-pumpkin
+
+
+// -- antiguo:
+
+$roboto: Roboto, sans-serif
+
+$font-size-title: 18px
+$font-size-copy: 14px
+
+$font-weight-light: 300
+$font-weight-regular: 400
+$font-weight-medium: 500
+$font-weight-bold: 700
+
+=text-ellipsis()
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+
+// Mixin provisional para paper-icon-button; cambiar cuando @angular/material deje bien sus md-icon-button
+// size 18, $bluey-grey-shade con hover a $bluey-grey
+=standard-icon-button()
+  width: 34px
+  height: 34px
+  color: $bluey-grey-shade
+  transition: color .2s
+  &:hover
+    color: $bluey-grey
+
+

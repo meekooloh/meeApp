@@ -1,0 +1,13 @@
+<div *ngIf="link">
+	<div *ngFor="let m of link">
+		<div *ngIf="m.type=='image'">
+			<img src="{{m.link}}">
+		</div>
+		<div *ngIf="m.type=='video'">
+			<video width="400" height="300" controls autoplay>
+		  		<source src="{{m.link}}" type="video/mp4">
+		  		{{browserDontSupport| translate}}
+			</video>
+		</div>
+	</div>
+</div>

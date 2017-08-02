@@ -1,0 +1,14 @@
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+=blur($qte)
+  -webkit-filter: blur($qte)
+  -moz-filter: blur($qte)
+  filter: blur($qte)
