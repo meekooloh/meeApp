@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
+import { PipesModule } from './pipes/pipes.module';
 
 import { WindowService } from './services/window.service';
 
@@ -21,7 +22,7 @@ import { TRANSLATION_PROVIDERS }   from './translate/translation';
     CommonModule,
     FormsModule,
     ComponentsModule,
-
+    PipesModule
   ],
   declarations: [
     AppComponent,
