@@ -1,0 +1,18 @@
+@import '../../styles/typography';
+@import '../../styles/colors';
+
+.selected{
+	color :red;
+}
+
+.filters-container{
+	height:50px;
+	width:100%;
+	background-color: #a31ce6;
+}
+.filter-container{
+	height:30px;
+	width:300px;
+	float: left;
+    padding: 10px;
+}

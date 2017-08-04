@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
             //this.windowService.window.document.getElementsByClassName("body-top")[0].style.opacity="0";
             this.windowService.window.document.getElementsByClassName("body-top")[0].className=this.windowService.window.document.getElementsByClassName("body-top")[0].className+" fixed-top";
             this.windowService.window.document.getElementsByClassName("container")[0].style.margin="120px 0 0 0";
+            this.windowService.window.document.getElementsByClassName("container")[0].style.padding="100px 20em 0 25em";
         }else{
              var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
             for (var i = 0; i < arr.length; i++) {
@@ -42,6 +43,7 @@ export class AppComponent implements OnInit {
 
             this.windowService.window.document.getElementsByClassName("body-top")[0].className=this.windowService.window.document.getElementsByClassName("body-top")[0].className.split(" fixed-top")[0];
             this.windowService.window.document.getElementsByClassName("container")[0].style.margin="410px 0 0 0";
+            this.windowService.window.document.getElementsByClassName("container")[0].style.padding="50px 20em 0 25em";
         }
     }
 
@@ -54,7 +56,7 @@ export class AppComponent implements OnInit {
     zoom: number = 110;  
     positionCords = {};
 
-    
+
     metadata1 : MetaData={type:"image", link:"http://www.lovethispic.com/uploaded_images/247074-Cute-Little-Bunny.jpg"};
     metadata2 : MetaData={type:"video", link:"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"};
     

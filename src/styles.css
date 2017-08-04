@@ -21,6 +21,7 @@ body.modal-open {
   margin-top:410px;
   padding-left:25em;
   padding-right:20em;	
+  padding-top:50px;
   	
 }
 .jumbotron{
@@ -128,3 +129,10 @@ body {
   }
 }
       
+ 
+
+.shadow {
+  -webkit-box-shadow: inset 27px 26px 56px 0px rgba(0,0,0,0.86);
+  -moz-box-shadow: inset 27px 26px 56px 0px rgba(0,0,0,0.86);
+  box-shadow: inset 27px 26px 56px 0px rgba(0,0,0,0.86);
+}
