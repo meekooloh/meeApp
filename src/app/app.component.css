@@ -10,14 +10,26 @@
     -o-transition:width 300ms ease-in-out, height 300ms ease-in-out;
     transition:width 300ms ease-in-out, height 300ms ease-in-out;
 
-	  background: #9999ff;
-    background: -webkit-linear-gradient(left top, #9999ff, #2cb5e8); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(bottom right, #9999ff, #2cb5e8); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(bottom right, #9999ff, #2cb5e8); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to bottom right, #9999ff, #2cb5e8); /* Standard syntax */      	
+    /* background: #9999ff;*/
+	  background: #70E63E;
+    
+    /*background: -webkit-linear-gradient(left top, #9999ff, #2cb5e8); // For Safari 5.1 to 6.0 
+    background: -o-linear-gradient(bottom right, #9999ff, #2cb5e8); //For Opera 11.1 to 12.0 
+    background: -moz-linear-gradient(bottom right, #9999ff, #2cb5e8); // For Firefox 3.6 to 15 
+    background: linear-gradient(to bottom right, #9999ff, #2cb5e8); // Standard syntax      
+    */
+    background: -webkit-linear-gradient(left top, #ffffff, #8F19C1); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, #ffffff, #8F19C1); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #ffffff, #8F19C1); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, #ffffff, #8F19C1); /* Standard syntax */       
   
   }
-  @-webkit-keyframes fadeIn {
+.shadow-volume{
+  -webkit-box-shadow: 30px 31px 84px 0px rgba(156,148,156,1);
+  -moz-box-shadow: 30px 31px 84px 0px rgba(156,148,156,1);
+  box-shadow: 30px 31px 84px 0px rgba(156,148,156,1);  
+}
+@-webkit-keyframes fadeIn {
     from { opacity: 0; }
       to { opacity: 1; }
 }  
@@ -35,7 +47,8 @@
   }
 
   .compact-container{
-    background-color: #e2e2e2;    
+    /*background-color: #e2e2e2;    */
+    background-color: #fFFFFF;
     overflow:scroll; 
     height:100%;
   } 

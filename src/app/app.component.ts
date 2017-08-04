@@ -57,8 +57,7 @@ export class AppComponent implements OnInit {
     
     metadata1 : MetaData={type:"image", link:"http://www.lovethispic.com/uploaded_images/247074-Cute-Little-Bunny.jpg"};
     metadata2 : MetaData={type:"mp4", link:"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"};
-    metadata3 : MetaData={type:"youtube", link:"http://www.youtube.com/embed/XGSy3_Czz8k"};
-    
+    metadata3 : MetaData={type:"youtube", link:"http://youtube.com/embed/LXEKuttVRIo"};
     mockPost: Post={
         id: "1",
         title: "post test",
