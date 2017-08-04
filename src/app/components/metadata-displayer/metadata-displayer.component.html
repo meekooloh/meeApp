@@ -1,13 +1,18 @@
 <div *ngIf="link">
 	<div *ngFor="let m of link">
-		<div *ngIf="m.type=='image'">
+		<div *ngIf="m.type=='image'" class="metadata-picture">
 			<img src="{{m.link}}">
 		</div>
-		<div *ngIf="m.type=='video'">
-			<video width="400" height="300" controls autoplay>
+		<div *ngIf="m.type=='mp4'" class="metadata-mp4">
+			<video  controls >
 		  		<source src="{{m.link}}" type="video/mp4">
 		  		{{browserDontSupport| translate}}
 			</video>
 		</div>
+		<div *ngIf="m.type=='youtube'" class="metadata-youtube">
+			<iframe 
+			[src]="m.link | safe">
+			</iframe>
+		</div>		
 	</div>
 </div>
