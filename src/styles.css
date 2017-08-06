@@ -1,8 +1,11 @@
+@import '~bootstrap/dist/css/bootstrap.css';
+
 html, body
 {
-	margin:0;
-	height: 100%;
-	overflow: auto;
+  margin:0;
+  overflow: hidden;
+  height: 100%;
+
 }
 
 /* MODAL STYLES
@@ -17,10 +20,16 @@ body.modal-open {
     /* body overflow is hidden to hide main scrollbar when modal window is open */
    overflow: hidden;
 }
+@media screen and (max-width: 600px) {
+  .container{
+    padding:0;
+    margin-top :0px !important;
+    padding-top: 100px;
+  }
+}
 .container{
+  width:100%;
   margin-top:410px;
-  padding-left:25em;
-  padding-right:20em;	
   padding-top:50px;
   	
 }
@@ -34,7 +43,7 @@ h1.toptitle{
   margin: 0;
   padding-top: 30px;
   padding-bottom: 30px;
-  color:grey;
+  color: white;
   font-size: 40px;
 }
 body {

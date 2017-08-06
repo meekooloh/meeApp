@@ -8,8 +8,13 @@
 
 }
 iframe{
-	width: 640px;
-	height: 480px;
+	  height: auto;
+	  width: auto;
+  overflow: auto
+
+/*	max-width: 640px;
+	max-height: 480px;
+*/
 }
 video{
 	max-width: 640px;

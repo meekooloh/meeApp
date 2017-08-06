@@ -9,18 +9,22 @@ import { NavFilterComponent } from './nav-filter/nav-filter.component';
 import { MetadataDisplayerComponent } from './metadata-displayer/metadata-displayer.component';
 import { UserDateInfoComponent } from './user-date-info/user-date-info.component';
 import { PipesModule } from './../pipes/pipes.module';
+import { IndexComponent } from './index/index.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    PipesModule
+    PipesModule,
+    NgbModule
   ],
   exports:[
   	PostComponent,
   	NavFilterComponent,
   	MetadataDisplayerComponent,
-  	UserDateInfoComponent
+  	UserDateInfoComponent,
+    IndexComponent,
 
   ],
   declarations: [
@@ -28,7 +32,8 @@ import { PipesModule } from './../pipes/pipes.module';
   	PostComponent,
   	NavFilterComponent,
   	MetadataDisplayerComponent,
-  	UserDateInfoComponent
+  	UserDateInfoComponent,
+  	IndexComponent,
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

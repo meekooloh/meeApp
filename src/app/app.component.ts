@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
     @HostListener('scroll', ['$event'])
     onScroll(event) {
         event.stopPropagation();
-        console.log("hola")
         if (event.target.scrollTop!=0){
             var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
 
@@ -30,28 +29,25 @@ export class AppComponent implements OnInit {
 
             }
             this.windowService.window.document.getElementsByClassName("body-top")[0].style.height="50px";
-            //this.windowService.window.document.getElementsByClassName("body-top")[0].style.opacity="0";
             this.windowService.window.document.getElementsByClassName("body-top")[0].className="body-top fixed-top";
             this.windowService.window.document.getElementsByClassName("container")[0].style.margin="120px 0 0 0";
-            this.windowService.window.document.getElementsByClassName("container")[0].style.padding="100px 20em 0 25em";
+            this.windowService.window.document.getElementsByClassName("index-container")[0].style.top="50px";
         }else{
-             var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
-            for (var i = 0; i < arr.length; i++) {
-                arr[i].className="transition-element";
-                arr[i].style.opacity = "1";
-            }
-            this.windowService.window.document.getElementsByClassName("body-top")[0].style.height="410px";
-            //this.windowService.window.document.getElementsByClassName("body-top")[0].style.opacity="1";
+            if (this.windowService.window.document.body.offsetWidth>=600){
 
-            this.windowService.window.document.getElementsByClassName("body-top")[0].className="body-top";
-            this.windowService.window.document.getElementsByClassName("container")[0].style.margin="410px 0 0 0";
-            this.windowService.window.document.getElementsByClassName("container")[0].style.padding="50px 20em 0 25em";
+                 var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
+                for (var i = 0; i < arr.length; i++) {
+                    arr[i].className="transition-element";
+                    arr[i].style.opacity = "1";
+                }
+                this.windowService.window.document.getElementsByClassName("body-top")[0].style.height="410px";
+                this.windowService.window.document.getElementsByClassName("body-top")[0].className="body-top";
+                this.windowService.window.document.getElementsByClassName("container")[0].style.margin="410px 0 0 0";
+                this.windowService.window.document.getElementsByClassName("index-container")[0].style.top="410px";
+            }
         }
     }
 
-    /*@HostListener('click', ['$event']) handleEvent(e) {
-        //console.log('add-item', e);
-    }*/
     title = 'app';
     lat: number = 40.481406;
     lng: number = -3.669023;  
@@ -75,36 +71,26 @@ export class AppComponent implements OnInit {
         subcategory2: "cat3"
     }
     mockPosts=[this.mPost,this.mPost,this.mPost,this.mPost];
-   
     // Center map. Required.
-
     // MapOptions object specification.
-
     // The initial map zoom level. Required.
     //zoom: number;
-
     disableDefaultUI: boolean;
     disableDoubleClickZoom: boolean;
     maxZoom: number;
     minZoom: number;
-
     // Marker position. Required.
-
     // Marker title.
-
     // Info window.
     content: string;
-
     // Address to be searched.
     address: string;
-
     // Warning flag & message.
     warning: boolean;
     message: string;
 
     constructor(private geolocation: GeolocationService,
                 public windowService: WindowService) {
-
         // Other options.
         this.disableDefaultUI = true;
         this.disableDoubleClickZoom = false;
@@ -112,17 +98,20 @@ export class AppComponent implements OnInit {
         this.minZoom = 4;
         // Styled Maps: https://developers.google.com/maps/documentation/javascript/styling
         // You can use the Styled Maps Wizard: http://googlemaps.github.io/js-samples/styledmaps/wizard/index.html 
-
         // Initially the marker isn't set.
-
         this.address = "";
-
         this.warning = false;
         this.message = "";
     }
 
-
-
+    tooggleMenu() {
+        var x = this.windowService.window.document.getElementById("myTopnav");
+        if (x.className.indexOf("responsive")==-1) {
+            x.className += " responsive";
+        } else {
+            x.classList.remove("responsive");
+        }
+    }
 
     ngOnInit(){
  	    this.getCurrentPosition();
@@ -130,12 +119,10 @@ export class AppComponent implements OnInit {
     getCurrentPosition() {
         this.warning = false;
         this.message = "";
-
         if (navigator.geolocation) {
             this.geolocation.getCurrentPosition().forEach(
                 (position: Position) => {
                 	this.positionCords= position.coords;
-                    
                 }
             ).then(() => console.log('Geolocation service: completed.')).catch(
                 (error: PositionError) => {

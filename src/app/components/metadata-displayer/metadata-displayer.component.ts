@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-metadata-displayer',
@@ -11,7 +11,9 @@ export class MetadataDisplayerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+  }
+  ngOnChanges() {
+  	//debugger
   }
 
 }
