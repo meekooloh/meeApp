@@ -48,11 +48,15 @@
         <h2><a target="_blank" href="http://angularjs.blogspot.ca/">Angular blog</a></h2>
       </li>
     </ul>-->
-    <app-post
-      [post]="mockPost"
-    >
-      
-    </app-post>
-    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" ></agm-map>
+    <div *ngFor="let mockPost of mockPosts">
+      <app-post
+        [post]="mockPost"
+      >
+        
+      </app-post>
+    </div>
+    <!--
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" ></agm-map>
+      -->
   </div> 
 </div> 

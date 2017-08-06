@@ -2,17 +2,29 @@
 @import '../../styles/colors';
 
 .selected{
-	color :red;
+	color : $selected-text;
+	font-weight: bold;
 }
-
+ 
+span{
+	color: $normal-text;
+	&:hover{
+		font-weight: bold;
+	}
+}
 .filters-container{
 	height:50px;
 	width:100%;
-	background-color: #a31ce6;
+	background-color: #f2f2f2;
 }
 .filter-container{
-	height:30px;
-	width:300px;
+	background-color: white;
+	height:20px;
+	width:100px;
+	margin: auto 5px;
+	margin-top: 10px;
 	float: left;
     padding: 10px;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
 }

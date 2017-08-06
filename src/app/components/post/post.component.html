@@ -8,20 +8,26 @@
 		[cat5]="post.subcategory5"
 	>
 	</app-nav-filter>
-	<app-user-date-info
-		[user]="post.userid"
-		[date]="post.date"
-		>
-	</app-user-date-info>
-	<h1>
-	  	{{post.title}}
-	</h1>
-	<span>
-		{{post.info}}
-	</span>
-	<app-metadata-displayer
-		[link]="post.metadata"
-	>
-	</app-metadata-displayer>
+	<div class="post-header">
+		<div class="post-title">
+			<h1>
+		  		{{post.title}}
+			</h1>
+		</div>
+		<app-user-date-info
+			[user]="post.userid"
+			[date]="post.date"
+			>
+		</app-user-date-info>
+	</div>
+	<div class="post-content-container">
 
+		<span>
+			{{post.info}}
+		</span>
+		<app-metadata-displayer
+			[link]="post.metadata"
+		>
+		</app-metadata-displayer>
+	</div>
 </div>

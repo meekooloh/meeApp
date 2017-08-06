@@ -1,5 +1,5 @@
 <div *ngIf="link">
-	<div *ngFor="let m of link">
+	<div *ngFor="let m of link" class="metadata-container">
 		<div *ngIf="m.type=='image'" class="metadata-picture">
 			<img src="{{m.link}}">
 		</div>

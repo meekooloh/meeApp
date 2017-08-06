@@ -1,0 +1,24 @@
+@import '../../styles/typography';
+@import '../../styles/colors';
+.metadata-mp4{
+
+}
+.metadata-youtube{
+	
+
+}
+iframe{
+	width: 640px;
+	height: 480px;
+}
+video{
+	max-width: 640px;
+	max-height: 480px;
+}
+
+.metadata-container{
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	display: table;
+}

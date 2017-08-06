@@ -44,6 +44,14 @@ body {
   background: -moz-linear-gradient(bottom right, #96C2DB, #96FADB); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to bottom right, #96C2DB, #96FADB); /* Standard syntax */
 }
+.link{
+  cursor:pointer;
+}
+.link:hover{
+  background-color:#f2f2f2 !important;
+}
+
+
 .loader {
   color: #ffffff;
   font-size: 90px;

@@ -10,7 +10,7 @@
     -o-transition:width 300ms ease-in-out, height 300ms ease-in-out;
     transition:width 300ms ease-in-out, height 300ms ease-in-out;
 
-	  background: #9999ff;
+	  background: #ffffff;
     background: -webkit-linear-gradient(left top, #9999ff, #2cb5e8); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(bottom right, #9999ff, #2cb5e8); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(bottom right, #9999ff, #2cb5e8); /* For Firefox 3.6 to 15 */
@@ -35,7 +35,7 @@
   }
 
   .compact-container{
-    background-color: #e2e2e2;    
+    background-color: #ffffff;    
     overflow:scroll; 
     height:100%;
   } 
