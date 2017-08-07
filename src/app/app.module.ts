@@ -13,10 +13,12 @@ import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
 import { TranslateService }   from './translate/translate.service';
 import { TRANSLATION_PROVIDERS }   from './translate/translation';
+import { MomentModule } from 'angular2-moment/moment.module';
 
 @NgModule({
   imports: [
     BrowserModule,
+    MomentModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCUH-WneVvU4TupJAbGICXYPthn92MO7oM'
     }),

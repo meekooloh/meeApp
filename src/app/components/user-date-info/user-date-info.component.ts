@@ -8,9 +8,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class UserDateInfoComponent implements OnInit {
   @Input() user: string;
   @Input() date: string;
+  dateA : any;
   constructor() { }
 
   ngOnInit() {
+  	this.dateA= new Date(parseInt(this.date));
   }
 
 }

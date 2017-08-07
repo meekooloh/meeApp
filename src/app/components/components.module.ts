@@ -11,11 +11,14 @@ import { UserDateInfoComponent } from './user-date-info/user-date-info.component
 import { PipesModule } from './../pipes/pipes.module';
 import { FooterComponent } from './footer/footer.component';
 import { IndexComponent } from './index/index.component';
+import { MomentModule } from 'angular2-moment/moment.module';
+import { IndexLooperComponent } from './index-looper/index-looper.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    MomentModule,
     PipesModule,
   ],
   exports:[
@@ -25,6 +28,7 @@ import { IndexComponent } from './index/index.component';
   	UserDateInfoComponent,
     FooterComponent,
     IndexComponent,
+    IndexLooperComponent,
 
   ],
   declarations: [
@@ -35,6 +39,7 @@ import { IndexComponent } from './index/index.component';
   	UserDateInfoComponent,
   	FooterComponent,
   	IndexComponent,
+  	IndexLooperComponent,
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

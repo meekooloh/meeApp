@@ -72,6 +72,55 @@ export class AppComponent implements OnInit {
         subcategory2: "cat3"
     }
     mockPosts=[this.mPost,this.mPost,this.mPost,this.mPost];
+    
+    catIndex={ level:1,label:"index",strc:[
+            { level:2,value: "cat10000", label:"info1",strc:[
+                { level:3,value:"cat11000", label:"info11",strc:[
+                        {level:4,value: "cat11100", label:"info111",strc:[
+                            {level:5,value :"cat11110", label:"info1111",strc:[
+                                { level:6, value: "cat11111", label:"info11111",strc:[]},
+                                { level:6, value: "cat11112", label:"info11112",strc:[]},
+                                { level:6, value: "cat11113", label:"info11113",strc:[]},
+                            ]},
+                            {level:5,value :"cat11120", label:"info1112",strc:[
+                                {value :"cat11121", label:"info11121",strc:[]},
+                                {value :"cat11122", label:"info11122",strc:[]},
+                                {value :"cat11123", label:"info11123",strc:[]},
+                            ]},
+                            {level:5,value :"cat11130", label:"info1113",strc:[]},
+                        ]
+                        },
+                        {level:4,value :"cat11200", label:"info211",strc:[]},
+                        {level:4,value :"cat11300", label:"info311",strc:[]},
+                    ]
+                },
+                {level:3,value :"cat12000", label:"info12",strc:[
+                        {level:4,value :"cat12100", label:"info121",strc:[]},
+                        {level:4,value :"cat12200", label:"info122",strc:[]},
+                        {level:4,value :"cat12300",label:"info123",strc:[]}
+                    ]
+                },
+                {level:3,value :"cat13000", label: "info13", strc:[
+                        {level:4,value :"cat13100", label:"info131",strc:[]},
+                        {level:4,value :"cat13200", label:"info132",strc:[]},
+                        {level:4,value :"cat13300", label:"info133",strc:[]}
+                    ]
+                },
+            ]
+        },
+        {level:2,value :"cat20000", label:"info2",strc:[
+            {level:3,value :"cat21000",label:"info21", strc:[]},
+            {level:3,value :"cat22000",label:"info22", strc:[]},
+            {level:3,value :"cat23000",label:"info23", strc:[]}
+            ]
+        },
+        {level:2,value :"cat30000", label:"info3",strc:[
+            {level:3,value :"cat31000",label:"info31", strc:[]},
+            {level:3,value :"cat32000",label:"info32", strc:[]},
+            {level:3,value :"cat33000",label:"info33", strc:[]}
+            ]
+        }
+    ]};
     // Center map. Required.
     // MapOptions object specification.
     // The initial map zoom level. Required.

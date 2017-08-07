@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-index',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index.component.scss']
 })
 export class IndexComponent implements OnInit {
+  @Input() strct: string;
 
   constructor() { }
 
   ngOnInit() {
+  	debugger;
   }
-
+  doSomething(e){
+	debugger
+  }
 }

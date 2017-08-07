@@ -1,5 +1,12 @@
-<div class="index-container">
-	<p>
-	  index works!
-	</p>
+<div class="index-container shadow-volume">
+	<div *ngIf="strct['label']">
+		<span>{{strct.label}}</span>
+		<div *ngFor="let s of strct.strc">
+			<app-index-looper
+				[level]="strct.level"
+				[items]="s"
+				>
+			</app-index-looper>
+		</div>
+	</div>
 </div>
