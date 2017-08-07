@@ -2,5 +2,28 @@
 @import '../../styles/colors';
 
 .post-container{
+    background: white;
+    border: 2px solid grey;
+    border-radius: 3px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.post-header{
+    display: inline-block;
+    width: calc(100% - 60px);
+    height:70px;
+    margin:30px;
+    border-bottom:3px solid grey;
 
+
+}
+.post-title{
+    width:50%;
+    float:left;
+}
+.post-content-container{
+	margin:30px;
+}
+span{
+	color: $normal-text;
 }

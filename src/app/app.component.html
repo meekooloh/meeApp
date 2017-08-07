@@ -1,59 +1,43 @@
-<!--The whole content below can be removed with the new code.-->
+<div class="navbar-link topnav" id="myTopnav">
+  <a class="tab-link left" href="#home">Home</a>
+  <a class="tab-link left" href="#news">News</a>
+  <a class="tab-link left" href="#contact">Contact</a>
+  <a class="tab-link left">Docs</a>
+  <a class="tab-link left">Docs</a>
+  <a href="javascript:void(0);" class="icon" (click)="tooggleMenu()">&#9776;</a>
+  <a class="tab-link right">Docs</a>
+  <a class="tab-link right" href="#about">About</a>
+</div>
+
 <div (scroll)="onScroll($event)" class="compact-container">
-    <div class="navbar-link">
-      <a><label class="tab-link left">
-      Docs
-      </label></a>
-      <a><label class="tab-link left">
-      Docs
-      </label></a>
-      <a><label class="tab-link left">
-      Docs
-      </label></a>
-      <a><label class="tab-link left">
-      Docs
-      </label></a>
-      <a><label class="tab-link left">
-      Docs
-      </label></a>
-      <a><label class="tab-link left">
-      Docs
-      </label></a>
 
-
-      <a><label class="tab-link right">
-      Docs
-      </label></a>
-      <a><label class="tab-link right">
-      Docs
-      </label></a>
-    </div>
   <div style="text-align:center" class="body-top shadow-volume">
 
     <h1 class="toptitle">
       Nice to see you..
     </h1>
-    <img width="300" src="/assets/parrot.png" />
+    <img class="logo" width="300" src="/assets/parrot.png" />
   </div>
   <div class="container">
-    <!--<h2 class="nospace">Here are some links to help you start: </h2>
-    <ul>
-      <li>
-        <h2 ><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" href="http://angularjs.blogspot.ca/">Angular blog</a></h2>
-      </li>
-    </ul>-->
-    <app-post
-      [post]="mockPost"
-    >
-      
-    </app-post>
-    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" ></agm-map>
+    <div class="row">
+      <div class="col-sm-3">
+        <app-index>
+        </app-index>
+      </div>
+      <div class="col-sm-6">
+        <div *ngFor="let mockPost of mockPosts; let i=index">
+          <div *ngIf="i<2">
+            <app-post 
+              [post]="mockPost"
+            >
+            </app-post>
+          </div>
+        </div>
+        <!--
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" ></agm-map>
+          -->
+      </div> 
+    </div> 
   </div> 
 </div> 
     <app-footer></app-footer>

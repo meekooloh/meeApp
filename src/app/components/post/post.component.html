@@ -8,6 +8,7 @@
 		[cat5]="post.subcategory5"
 	>
 	</app-nav-filter>
+<<<<<<< HEAD
 	<app-user-date-info
 		[user]="post.userid"
 		[date]="post.date"
@@ -23,5 +24,28 @@
 		[link]="post.metadata"
 	>
 	</app-metadata-displayer>
+=======
+	<div class="post-header">
+		<div class="post-title">
+			<h1>
+		  		{{post.title}}
+			</h1>
+		</div>
+		<app-user-date-info
+			[user]="post.userid"
+			[date]="post.date"
+			>
+		</app-user-date-info>
+	</div>
+	<div class="post-content-container">
+>>>>>>> e9ea8f7dae1fcd8ecc9210700373348d25456b74
 
+		<span>
+			{{post.info}}
+		</span>
+		<app-metadata-displayer
+			[link]="post.metadata"
+		>
+		</app-metadata-displayer>
+	</div>
 </div>

@@ -10,19 +10,21 @@ import { MetadataDisplayerComponent } from './metadata-displayer/metadata-displa
 import { UserDateInfoComponent } from './user-date-info/user-date-info.component';
 import { PipesModule } from './../pipes/pipes.module';
 import { FooterComponent } from './footer/footer.component';
+import { IndexComponent } from './index/index.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    PipesModule
+    PipesModule,
   ],
   exports:[
   	PostComponent,
   	NavFilterComponent,
   	MetadataDisplayerComponent,
   	UserDateInfoComponent,
-    FooterComponent
+    FooterComponent,
+    IndexComponent,
 
   ],
   declarations: [
@@ -31,7 +33,8 @@ import { FooterComponent } from './footer/footer.component';
   	NavFilterComponent,
   	MetadataDisplayerComponent,
   	UserDateInfoComponent,
-  	FooterComponent
+  	FooterComponent,
+  	IndexComponent,
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
