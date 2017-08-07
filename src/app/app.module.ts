@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
 import { TranslateService }   from './translate/translate.service';
 import { TRANSLATION_PROVIDERS }   from './translate/translation';
+
 @NgModule({
   imports: [
     BrowserModule,

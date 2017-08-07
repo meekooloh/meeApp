@@ -9,6 +9,7 @@ import { NavFilterComponent } from './nav-filter/nav-filter.component';
 import { MetadataDisplayerComponent } from './metadata-displayer/metadata-displayer.component';
 import { UserDateInfoComponent } from './user-date-info/user-date-info.component';
 import { PipesModule } from './../pipes/pipes.module';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { PipesModule } from './../pipes/pipes.module';
   	PostComponent,
   	NavFilterComponent,
   	MetadataDisplayerComponent,
-  	UserDateInfoComponent
+  	UserDateInfoComponent,
+    FooterComponent
 
   ],
   declarations: [
@@ -28,7 +30,8 @@ import { PipesModule } from './../pipes/pipes.module';
   	PostComponent,
   	NavFilterComponent,
   	MetadataDisplayerComponent,
-  	UserDateInfoComponent
+  	UserDateInfoComponent,
+  	FooterComponent
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
