@@ -20,31 +20,35 @@ export class AppComponent implements OnInit {
     @HostListener('scroll', ['$event'])
     onScroll(event) {
         event.stopPropagation();
-        if (event.target.scrollTop!=0){
+            debugger
+        var class2add="transition-element";
+        if (event.target.scrollTop!=0 && event.target.offsetWidth >600){
             var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
-
+            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("transition-element")
             for (var i = 0; i < arr.length; i++) {
-                arr[i].className="";
-                arr[i].style.opacity = "0";
+                if (!arr[i].classList.contains(class2add)){
+                    arr[i].classList.add(class2add);
+                    arr[i].style.opacity = "0";
+                }
 
             }
             this.windowService.window.document.getElementsByClassName("body-top")[0].style.height="50px";
             this.windowService.window.document.getElementsByClassName("body-top")[0].className="body-top fixed-top";
-            this.windowService.window.document.getElementsByClassName("container")[0].style.margin="120px 0 0 0";
             this.windowService.window.document.getElementsByClassName("index-container")[0].style.top="50px";
-        }else{
-            if (this.windowService.window.document.body.offsetWidth>=600){
+        }else if( event.target.offsetWidth >600){
 
                  var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
+            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("transition-element")
                 for (var i = 0; i < arr.length; i++) {
-                    arr[i].className="transition-element";
-                    arr[i].style.opacity = "1";
+                    if (arr[i].classList.contains(class2add)){
+                        arr[i].classList.remove(class2add);
+                        //arr[i].className=arr[i].className + " transition-element";
+                        arr[i].style.opacity = "1";
+                    }
                 }
                 this.windowService.window.document.getElementsByClassName("body-top")[0].style.height="410px";
                 this.windowService.window.document.getElementsByClassName("body-top")[0].className="body-top";
                 this.windowService.window.document.getElementsByClassName("container")[0].style.margin="410px 0 0 0";
-                this.windowService.window.document.getElementsByClassName("index-container")[0].style.top="410px";
-            }
         }
     }
 

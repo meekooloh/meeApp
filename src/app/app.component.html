@@ -1,4 +1,14 @@
-<div class="navbar-link topnav" id="myTopnav">
+
+<div class="jumbotron">
+  <div class="body-top shadow-volume transition-element-s ">
+    <h1 class="toptitle transition-element-show">
+      Nice to see you..
+    </h1>
+    <img class="logo transition-element-show" width="300" src="/assets/parrot.png" />
+  </div>
+</div>
+
+<nav class="navbar topnav fixed-top navbar-dark bg-faded navbar-link" id="myTopnav">
   <a class="tab-link left" href="#home">Home</a>
   <a class="tab-link left" href="#news">News</a>
   <a class="tab-link left" href="#contact">Contact</a>
@@ -7,16 +17,12 @@
   <a href="javascript:void(0);" class="icon" (click)="tooggleMenu()">&#9776;</a>
   <a class="tab-link right">Docs</a>
   <a class="tab-link right" href="#about">About</a>
-</div>
+</nav>
 
 <div (scroll)="onScroll($event)" class="compact-container">
 
-  <div style="text-align:center" class="body-top shadow-volume">
+  <div style="text-align:center" class="">
 
-    <h1 class="toptitle">
-      Nice to see you..
-    </h1>
-    <img class="logo" width="300" src="/assets/parrot.png" />
   </div>
   <div class="container">
     <div class="row">
@@ -34,11 +40,10 @@
             </app-post>
           </div>
         </div>
-        <!--
           <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" ></agm-map>
-          -->
       </div> 
     </div> 
   </div> 
 </div> 
+
     <app-footer></app-footer>

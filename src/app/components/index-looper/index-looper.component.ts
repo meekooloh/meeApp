@@ -23,10 +23,9 @@ export class IndexLooperComponent implements OnInit {
   	}else{
   		this.className="hidden";
   	}
-  	debugger
   }
   indexSpread(e){
-  	debugger
+  	
   	if (this.items.level> 1){
   		this.items.level=1;
   	}else{
