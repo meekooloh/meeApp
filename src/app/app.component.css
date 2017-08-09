@@ -7,12 +7,19 @@
   position: relative;
   margin:0;
   padding:0;
-  height: 410px;
+  height: 50px;
+}
+
+.height410{
+  height:410px;
 }
 @media screen and (max-width: 600px) {
   .jumbotron{
     height: 50px;
   }
+  .body-top{
+    height: 50px !important;
+  }  
 }
 h1.toptitle{
   text-align: center;  
@@ -64,8 +71,8 @@ h1.toptitle{
 }
 
 @keyframes fadein {
-    from { opacity: 1; }
-    to   { opacity: 0; }
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 /* Firefox < 16 */
@@ -92,19 +99,13 @@ h1.toptitle{
     to   { opacity: 1; }
 }
 
-.transition-element-out{
-    visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 2s, opacity 2s linear;
-}
-
 .transition-element-show{
-  -webkit-animation: fadeIn 4s;
-  animation: fadeIn 4s; 
+  -webkit-animation: fadeIn 6s;
+  animation: fadeIn 6s; 
 }
 .transition-element-s{
-  -webkit-animation: fadeInH 1s;
-  animation: fadeInH 1s; 
+  -webkit-animation: fadeInH 2s;
+  animation: fadeInH 2s; 
 }
 
 @media screen and (min-width: 600px) {
