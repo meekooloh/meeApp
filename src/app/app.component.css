@@ -9,9 +9,33 @@
   padding:0;
   height: 50px;
 }
+.body-top{
+  width: 100%;
+  -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+  transition: width 2s;
+  height: 50px;
 
+  -webkit-transition:width 300ms ease-in-out, height 300ms ease-in-out;
+  -moz-transition:width 300ms ease-in-out, height 300ms ease-in-out;
+  -o-transition:width 300ms ease-in-out, height 300ms ease-in-out;
+  transition:width 300ms ease-in-out, height 300ms ease-in-out;
+
+  /* background: #9999ff;*/
+  background: #70E63E;
+  
+  /*background: -webkit-linear-gradient(left top, #9999ff, #2cb5e8); // For Safari 5.1 to 6.0 
+  background: -o-linear-gradient(bottom right, #9999ff, #2cb5e8); //For Opera 11.1 to 12.0 
+  background: -moz-linear-gradient(bottom right, #9999ff, #2cb5e8); // For Firefox 3.6 to 15 
+  background: linear-gradient(to bottom right, #9999ff, #2cb5e8); // Standard syntax      
+  */
+  background: -webkit-linear-gradient(left top, #ffffff, #8F19C1); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #ffffff, #8F19C1); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #ffffff, #8F19C1); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #ffffff, #8F19C1); /* Standard syntax */       
+
+}
 .height410{
-  height:410px;
+  height:410px !important;
 }
 @media screen and (max-width: 600px) {
   .jumbotron{
@@ -37,31 +61,7 @@ h1.toptitle{
   display:none;
   margin:auto;
 }
-.body-top{
-  width: 100%;
-  -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
-  transition: width 2s;
-  height: 100%;
 
-  -webkit-transition:width 300ms ease-in-out, height 300ms ease-in-out;
-  -moz-transition:width 300ms ease-in-out, height 300ms ease-in-out;
-  -o-transition:width 300ms ease-in-out, height 300ms ease-in-out;
-  transition:width 300ms ease-in-out, height 300ms ease-in-out;
-
-  /* background: #9999ff;*/
-  background: #70E63E;
-  
-  /*background: -webkit-linear-gradient(left top, #9999ff, #2cb5e8); // For Safari 5.1 to 6.0 
-  background: -o-linear-gradient(bottom right, #9999ff, #2cb5e8); //For Opera 11.1 to 12.0 
-  background: -moz-linear-gradient(bottom right, #9999ff, #2cb5e8); // For Firefox 3.6 to 15 
-  background: linear-gradient(to bottom right, #9999ff, #2cb5e8); // Standard syntax      
-  */
-  background: -webkit-linear-gradient(left top, #ffffff, #8F19C1); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #ffffff, #8F19C1); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #ffffff, #8F19C1); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #ffffff, #8F19C1); /* Standard syntax */       
-
-}
 .transition-element{
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
@@ -122,7 +122,7 @@ h1.toptitle{
       margin:auto;
   }
 }
-
+/*
 @media screen and (min-width: 600px) {
   @-webkit-keyframes fadeInH {
       from { height: 50px; }
@@ -132,7 +132,7 @@ h1.toptitle{
       height:410px;
     }
 }
-
+*/
 
 .shadow-volume{
   -webkit-box-shadow: 30px 31px 84px 0px rgba(156,148,156,1);

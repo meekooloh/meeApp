@@ -57,6 +57,18 @@ export class AppComponent implements OnInit {
 
         }
     }
+    @HostListener('window:resize', ['$event'])
+    onResize(event){
+        debugger
+        let offsetY=this.windowService.window.document.getElementsByClassName("compact-container")[0];
+        if (offsetY.offsetTop==0 && event.target.innerWidth >600){
+            this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.add("height410");
+            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("height410");
+        }else{
+            this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.remove("height410");
+            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("height410");
+        }
+    }
 
     title = 'app';
     lat: number = 40.481406;
