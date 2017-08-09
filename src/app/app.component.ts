@@ -16,30 +16,25 @@ import { Post,MetaData } from './models/post';
 })
 export class AppComponent implements OnInit {
 
-
+    resizeTimeout = setTimeout((() => {
+            console.log('Resize complete');
+    }).bind(this), 500);
     @HostListener('scroll', ['$event'])
     onScroll(event) {
+
+       //debounce resize, wait for resize to finish before doing stuff
+        if (this.resizeTimeout) {
+            clearTimeout(this.resizeTimeout);
+
+
         event.stopPropagation();
             debugger
-        var class2add="transition-element";
-        if (event.target.scrollTop!=0 && event.target.offsetWidth >600){
-            var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
-            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("transition-element")
-            for (var i = 0; i < arr.length; i++) {
-                if (!arr[i].classList.contains(class2add)){
-                    arr[i].classList.add(class2add);
-                    arr[i].style.opacity = "0";
-                }
+            var class2add="transition-element";
+            let offsetY=this.windowService.window.document.getElementsByClassName("compact-container")[0];
+            if (offsetY.offsetTop==0 && event.target.innerWidth >600){
 
-            }
-            this.windowService.window.document.getElementsByClassName("body-top")[0].style.height="50px";
-            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("transition-element");
-                this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.remove("height410");
-            this.windowService.window.document.getElementsByClassName("index-container")[0].style.top="50px";
-        }else if( event.target.offsetWidth >600){
-
-                 var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;;
-            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("transition-element")
+                var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;;
+                this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("transition-element");
                 for (var i = 0; i < arr.length; i++) {
                     if (arr[i].classList.contains(class2add)){
                         arr[i].classList.remove(class2add);
@@ -47,26 +42,42 @@ export class AppComponent implements OnInit {
                     }
                 }
                 this.windowService.window.document.getElementsByClassName("body-top")[0].style.height="410px";
-            this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.add("height410");
+                this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.add("height410");
                 this.windowService.window.document.getElementsByClassName("body-top")[0].className="body-top";
                 this.windowService.window.document.getElementsByClassName("container")[0].style.margin="410px 0 0 0";
-        }else{
-                this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.remove("height410");
-            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("transition-element");
-            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("transition-element-s");
+            }else if( event.target.offsetWidth >600){
 
+
+                var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
+                this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("transition-element")
+                for (var i = 0; i < arr.length; i++) {
+                    if (!arr[i].classList.contains(class2add)){
+                        arr[i].classList.add(class2add);
+                        arr[i].style.opacity = "0";
+                    }
+                }
+                this.windowService.window.document.getElementsByClassName("body-top")[0].style.height="50px";
+                this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("transition-element");
+                this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.remove("height410");
+                this.windowService.window.document.getElementsByClassName("index-container")[0].style.top="50px";
+            }            
         }
     }
     @HostListener('window:resize', ['$event'])
     onResize(event){
-        debugger
-        let offsetY=this.windowService.window.document.getElementsByClassName("compact-container")[0];
-        if (offsetY.offsetTop==0 && event.target.innerWidth >600){
-            this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.add("height410");
-            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("height410");
-        }else{
-            this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.remove("height410");
-            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("height410");
+
+       //debounce resize, wait for resize to finish before doing stuff
+        if (this.resizeTimeout) {
+            clearTimeout(this.resizeTimeout);
+            debugger
+            let offsetY=this.windowService.window.document.getElementsByClassName("compact-container")[0];
+            if (offsetY.offsetTop==0 && event.target.innerWidth >600){
+                this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.add("height410");
+                this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("height410");
+            }else{
+                this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.remove("height410");
+                this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("height410");
+            }
         }
     }
 
