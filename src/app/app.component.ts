@@ -15,79 +15,98 @@ import { Post,MetaData } from './models/post';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
+    /*****************/
+    // navbar cool effect
     resizeTimeout = setTimeout((() => {
-            console.log('Resize complete');
     }).bind(this), 500);
+    doTheThing(){
+        if (this.windowService.window.document.getElementsByClassName("compact-container")[0].scrollTop==0){
+            var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
+            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("transition-element-hide");
+            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("transition-element-show");
+            for (var i = 0; i < arr.length; i++) {
+                arr[i].classList.remove("transition-element-out");
+                arr[i].classList.add("transition-element-in");
+            }
+            this.windowService.window.document.getElementsByClassName("toptitle")[0].classList.remove("transparent");
+            this.windowService.window.document.getElementsByClassName("logo")[0].classList.remove("transparent");
+            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("height410");
+            this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.add("height410");
+        }else{
+            this.doTheReset();
+        }
+    }
+    doTheReset(){
+        var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
+        for (var i = 0; i < arr.length; i++) {
+            arr[i].classList.remove("transition-element-in");
+            arr[i].classList.add("transition-element-out");
+        }
+        var class2add="transition-element-out";
+            var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
+            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("transition-element-show");
+            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("transition-element-hide");
+            for (var i = 0; i < arr.length; i++) {
+                if (!arr[i].classList.contains(class2add)){
+                    arr[i].classList.add(class2add);
+                }
+            }
+        this.windowService.window.document.getElementsByClassName("toptitle")[0].classList.add("transparent");
+        this.windowService.window.document.getElementsByClassName("logo")[0].classList.add("transparent");
+        this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("height410");
+        this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.remove("height410");
+    }
     @HostListener('scroll', ['$event'])
     onScroll(event) {
-
        //debounce resize, wait for resize to finish before doing stuff
         if (this.resizeTimeout) {
             clearTimeout(this.resizeTimeout);
-
-
-        event.stopPropagation();
-            debugger
-            var class2add="transition-element";
-            let offsetY=this.windowService.window.document.getElementsByClassName("compact-container")[0];
-            if (offsetY.offsetTop==0 && event.target.innerWidth >600){
-
-                var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;;
-                this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("transition-element");
-                for (var i = 0; i < arr.length; i++) {
-                    if (arr[i].classList.contains(class2add)){
-                        arr[i].classList.remove(class2add);
-                        arr[i].style.opacity = "1";
-                    }
-                }
-                this.windowService.window.document.getElementsByClassName("body-top")[0].style.height="410px";
-                this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.add("height410");
-                this.windowService.window.document.getElementsByClassName("body-top")[0].className="body-top";
-                this.windowService.window.document.getElementsByClassName("container")[0].style.margin="410px 0 0 0";
-            }else if( event.target.offsetWidth >600){
-
-
-                var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
-                this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("transition-element")
-                for (var i = 0; i < arr.length; i++) {
-                    if (!arr[i].classList.contains(class2add)){
-                        arr[i].classList.add(class2add);
-                        arr[i].style.opacity = "0";
-                    }
-                }
-                this.windowService.window.document.getElementsByClassName("body-top")[0].style.height="50px";
-                this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("transition-element");
-                this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.remove("height410");
-                this.windowService.window.document.getElementsByClassName("index-container")[0].style.top="50px";
-            }            
+            if (event.target.offsetWidth >600 ){
+                this.doTheThing();
+            }          
         }
     }
     @HostListener('window:resize', ['$event'])
     onResize(event){
-
        //debounce resize, wait for resize to finish before doing stuff
         if (this.resizeTimeout) {
             clearTimeout(this.resizeTimeout);
-            debugger
-            let offsetY=this.windowService.window.document.getElementsByClassName("compact-container")[0];
-            if (offsetY.offsetTop==0 && event.target.innerWidth >600){
-                this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.add("height410");
-                this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("height410");
+            if (event.target.innerWidth >600){
+                this.doTheThing();
             }else{
-                this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.remove("height410");
-                this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("height410");
+                this.doTheReset();
             }
         }
     }
-
+    /*****************/
     title = 'app';
+    /*****************/
+    //mapa var
+    // Center map. Required.
+    // MapOptions object specification.
+    // The initial map zoom level. Required.
+    //zoom: number;
+    disableDefaultUI: boolean;
+    disableDoubleClickZoom: boolean;
+    maxZoom: number;
+    minZoom: number;
+    // Marker position. Required.
+    // Marker title.
+    // Info window.
+    content: string;
+    // Address to be searched.
+    address: string;
+    // Warning flag & message.
+    warning: boolean;
+    message: string;
+    
     lat: number = 40.481406;
     lng: number = -3.669023;  
     zoom: number = 110;  
     positionCords = {};
 
-
+    /*****************/
+    // test data
     metadata1 : MetaData={type:"image", link:"http://www.lovethispic.com/uploaded_images/247074-Cute-Little-Bunny.jpg"};
     metadata2 : MetaData={type:"mp4", link:"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"};
 
@@ -154,23 +173,8 @@ export class AppComponent implements OnInit {
             ]
         }
     ]};
-    // Center map. Required.
-    // MapOptions object specification.
-    // The initial map zoom level. Required.
-    //zoom: number;
-    disableDefaultUI: boolean;
-    disableDoubleClickZoom: boolean;
-    maxZoom: number;
-    minZoom: number;
-    // Marker position. Required.
-    // Marker title.
-    // Info window.
-    content: string;
-    // Address to be searched.
-    address: string;
-    // Warning flag & message.
-    warning: boolean;
-    message: string;
+    /*****************/
+
 
     constructor(private geolocation: GeolocationService,
                 public windowService: WindowService) {
@@ -197,7 +201,15 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(){
- 	    this.getCurrentPosition();
+        if (this.windowService.window.document.getElementsByClassName("jumbotron")[0].offsetWidth >600){
+            if (this.windowService.window.document.getElementsByClassName("compact-container")[0].scrollTop==0){
+                this.doTheThing();
+            }else{
+                this.doTheReset();
+            }
+        }
+ 	    //this.getCurrentPosition();
+         
     }
     getCurrentPosition() {
         this.warning = false;
