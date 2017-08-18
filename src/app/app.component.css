@@ -68,34 +68,34 @@ h1.toptitle{
 }
 
 .transition-element-in{
-    -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 5s; /* Firefox < 16 */
-        -ms-animation: fadein 5s; /* Internet Explorer */
-         -o-animation: fadein 5s; /* Opera < 12.1 */
-            animation: fadein 5s;
+    -webkit-animation: fadein 10s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 10s; /* Firefox < 16 */
+        -ms-animation: fadein 10s; /* Internet Explorer */
+         -o-animation: fadein 10s; /* Opera < 12.1 */
+            animation: fadein 10s;
 }
 
 .transition-element-out{
-    -webkit-animation: fadeout 0.5s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadeout 0.5s; /* Firefox < 16 */
-        -ms-animation: fadeout 0.5s; /* Internet Explorer */
-         -o-animation: fadeout 0.5s; /* Opera < 12.1 */
-            animation: fadeout 0.5s;
+    -webkit-animation: fadeout 0.3s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadeout 0.3s; /* Firefox < 16 */
+        -ms-animation: fadeout 0.3s; /* Internet Explorer */
+         -o-animation: fadeout 0.3s; /* Opera < 12.1 */
+            animation: fadeout 0.3s;
 }
 
 .transition-element-show{
-    -webkit-animation: fadeIn 2s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadeIn 2s; /* Firefox < 16 */
-        -ms-animation: fadeIn 2s; /* Internet Explorer */
-         -o-animation: fadeIn 2s; /* Opera < 12.1 */
-            animation: fadeIn 2s;
+    -webkit-animation: fadeIn 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadeIn 1s; /* Firefox < 16 */
+        -ms-animation: fadeIn 1s; /* Internet Explorer */
+         -o-animation: fadeIn 1s; /* Opera < 12.1 */
+            animation: fadeIn 1s;
 }
 .transition-element-hide{
-    -webkit-animation: fadeOut 4s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadeOut 4s; /* Firefox < 16 */
-        -ms-animation: fadeOut 4s; /* Internet Explorer */
-         -o-animation: fadeOut 4s; /* Opera < 12.1 */
-            animation: fadeOut 4s;
+    -webkit-animation: fadeOut 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadeOut 1s; /* Firefox < 16 */
+        -ms-animation: fadeOut 1s; /* Internet Explorer */
+         -o-animation: fadeOut 1s; /* Opera < 12.1 */
+            animation: fadeOut 1s;
 }
 
 /*
@@ -198,7 +198,64 @@ h1.toptitle{
   overflow-y:scroll; 
   overflow-x:hidden;
   height:100%;
-} agm-map {
+
+} 
+/*
+.compact-container::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
+
+.compact-container::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+.compact-container::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-image: -webkit-gradient(linear,
+                     left bottom,
+                     left top,
+                     color-stop(0.44, rgb(122,153,217)),
+                     color-stop(0.72, rgb(73,125,189)),
+                     color-stop(0.86, rgb(28,58,148)));
+}
+*/
+.compact-container::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
+
+.compact-container::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+.compact-container::-webkit-scrollbar-thumb
+{
+  background-color: #3366FF;
+  border-radius: 10px;
+  background-image: -webkit-linear-gradient(0deg,
+                                            rgba(255, 255, 255, 0.5) 25%,
+                        transparent 25%,
+                        transparent 50%,
+                        rgba(255, 255, 255, 0.5) 50%,
+                        rgba(255, 255, 255, 0.5) 75%,
+                        transparent 75%,
+                        transparent)
+}
+
+
+
+
+agm-map {
   height: 1300px;
 }
 
@@ -206,7 +263,9 @@ h1.toptitle{
 
 
 
-
+.container{
+  margin-top: 50px;
+}
 @media screen and (max-width: 600px) {
   .container{
     padding:0;

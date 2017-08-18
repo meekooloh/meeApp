@@ -19,43 +19,7 @@ export class AppComponent implements OnInit {
     // navbar cool effect
     resizeTimeout = setTimeout((() => {
     }).bind(this), 500);
-    doTheThing(){
-        if (this.windowService.window.document.getElementsByClassName("compact-container")[0].scrollTop==0){
-            var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
-            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("transition-element-hide");
-            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("transition-element-show");
-            for (var i = 0; i < arr.length; i++) {
-                arr[i].classList.remove("transition-element-out");
-                arr[i].classList.add("transition-element-in");
-            }
-            this.windowService.window.document.getElementsByClassName("toptitle")[0].classList.remove("transparent");
-            this.windowService.window.document.getElementsByClassName("logo")[0].classList.remove("transparent");
-            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("height410");
-            this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.add("height410");
-        }else{
-            this.doTheReset();
-        }
-    }
-    doTheReset(){
-        var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
-        for (var i = 0; i < arr.length; i++) {
-            arr[i].classList.remove("transition-element-in");
-            arr[i].classList.add("transition-element-out");
-        }
-        var class2add="transition-element-out";
-            var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
-            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("transition-element-show");
-            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("transition-element-hide");
-            for (var i = 0; i < arr.length; i++) {
-                if (!arr[i].classList.contains(class2add)){
-                    arr[i].classList.add(class2add);
-                }
-            }
-        this.windowService.window.document.getElementsByClassName("toptitle")[0].classList.add("transparent");
-        this.windowService.window.document.getElementsByClassName("logo")[0].classList.add("transparent");
-        this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("height410");
-        this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.remove("height410");
-    }
+
     @HostListener('scroll', ['$event'])
     onScroll(event) {
        //debounce resize, wait for resize to finish before doing stuff
@@ -123,7 +87,19 @@ export class AppComponent implements OnInit {
         subcategory1: "cat2",
         subcategory2: "cat3"
     }
-    mockPosts=[this.mPost,this.mPost,this.mPost,this.mPost];
+    mPost2: Post={
+        id: "1",
+        title: "post test",
+        info: "This is the post test infoooo",
+        metadata: [ this.metadata1, this.metadata2,this.metadata3],
+        userid: "user1",
+        date: "1501699582462",
+        category: "cat1",
+        subcategory1: "cat2",
+        subcategory2: "cat3",
+        subcategory3: "cat4"
+    }    
+    mockPosts=[this.mPost,this.mPost2,this.mPost,this.mPost];
     
     catIndex={ level:1,label:"index",strc:[
             { level:2,value: "cat10000", label:"info1",strc:[
@@ -240,6 +216,47 @@ export class AppComponent implements OnInit {
             this.message = "browser doesn't support geolocation";
             this.warning = true;
         }
+    }
+    doTheThing(){
+        if (this.windowService.window.document.getElementsByClassName("compact-container")[0].scrollTop==0){
+            var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
+            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("transition-element-hide");
+            this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.remove("transition-element-hide");
+            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("transition-element-show");
+            this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.add("transition-element-show");
+            for (var i = 0; i < arr.length; i++) {
+                arr[i].classList.remove("transition-element-out");
+                arr[i].classList.add("transition-element-in");
+            }
+            this.windowService.window.document.getElementsByClassName("toptitle")[0].classList.remove("transparent");
+            this.windowService.window.document.getElementsByClassName("logo")[0].classList.remove("transparent");
+            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("height410");
+            this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.add("height410");
+        }else{
+            this.doTheReset();
+        }
+    }
+    doTheReset(){
+        var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
+        for (var i = 0; i < arr.length; i++) {
+            arr[i].classList.remove("transition-element-in");
+            arr[i].classList.add("transition-element-out");
+        }
+        var class2add="transition-element-out";
+            var arr = this.windowService.window.document.getElementsByClassName("body-top")[0].children;
+            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("transition-element-show");
+            this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.remove("transition-element-show");
+            this.windowService.window.document.getElementsByClassName("body-top")[0].classList.add("transition-element-hide");
+            this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.add("transition-element-hide");
+            for (var i = 0; i < arr.length; i++) {
+                if (!arr[i].classList.contains(class2add)){
+                    arr[i].classList.add(class2add);
+                }
+            }
+        this.windowService.window.document.getElementsByClassName("toptitle")[0].classList.add("transparent");
+        this.windowService.window.document.getElementsByClassName("logo")[0].classList.add("transparent");
+        this.windowService.window.document.getElementsByClassName("body-top")[0].classList.remove("height410");
+        this.windowService.window.document.getElementsByClassName("jumbotron")[0].classList.remove("height410");
     }
 
 }
