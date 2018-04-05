@@ -3,7 +3,7 @@ var ejs = require('ejs');
 const express = require('express');
 const app = express();
 
-var port = 3000;
+var port = 3001;
 
 var path = require('path');
 var bodyParser = require('body-parser');

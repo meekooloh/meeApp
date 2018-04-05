@@ -1,13 +1,79 @@
-.navbar-link{
-  background-color: transparent;
-  z-index: 1000;
+a {
+  cursor: pointer;
+}
+.topnav {
+  overflow: hidden;
+  color:grey;
+  font-weight: bold;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 15px 0 15px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd !important;
+  color: black;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .container{
+
+    margin-top :0px !important;
+    padding-top: 20px;
+  }
+  .topnav a:not(:first-child) {
+    display: none;
+    background-color: black;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+    background-color: transparent;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
 }
 .jumbotron{
+  height: 60px;
   background-color: #fff;
   position: relative;
   margin:0;
   padding:0;
-  height: 50px;
 }
 .body-top{
   width: 100%;
@@ -28,23 +94,13 @@
   background: -moz-linear-gradient(bottom right, #9999ff, #2cb5e8); // For Firefox 3.6 to 15 
   background: linear-gradient(to bottom right, #9999ff, #2cb5e8); // Standard syntax      
   */
-  background: -webkit-linear-gradient(left top, #ffffff, #8F19C1); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #ffffff, #8F19C1); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #ffffff, #8F19C1); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #ffffff, #8F19C1); /* Standard syntax */       
+  background: -webkit-linear-gradient(left top, #ffffff, #000000); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #ffffff, #000000); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #ffffff, #000000); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #ffffff, #000000); /* Standard syntax */       
 
 }
-.height410{
-  height:410px !important;
-}
-@media screen and (max-width: 600px) {
-  .jumbotron{
-    height: 50px;
-  }
-  .body-top{
-    height: 50px !important;
-  }  
-}
+
 h1.toptitle{
   text-align: center;  
   margin: 0;
@@ -56,288 +112,40 @@ h1.toptitle{
 .transparent{
   opacity: 0;
 }
-.toptitle{
-}
+
 .logo{
   position: relative;
   z-index: 1;
-  width:300px;
-  height:300px;
-  margin:auto;
-  margin-left: calc(50% - 150px);
+  width: 160px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
-
-.transition-element-in{
-    -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 5s; /* Firefox < 16 */
-        -ms-animation: fadein 5s; /* Internet Explorer */
-         -o-animation: fadein 5s; /* Opera < 12.1 */
-            animation: fadein 5s;
-}
-
-.transition-element-out{
-    -webkit-animation: fadeout 0.5s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadeout 0.5s; /* Firefox < 16 */
-        -ms-animation: fadeout 0.5s; /* Internet Explorer */
-         -o-animation: fadeout 0.5s; /* Opera < 12.1 */
-            animation: fadeout 0.5s;
-}
-
-.transition-element-show{
-    -webkit-animation: fadeIn 2s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadeIn 2s; /* Firefox < 16 */
-        -ms-animation: fadeIn 2s; /* Internet Explorer */
-         -o-animation: fadeIn 2s; /* Opera < 12.1 */
-            animation: fadeIn 2s;
-}
-.transition-element-hide{
-    -webkit-animation: fadeOut 4s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadeOut 4s; /* Firefox < 16 */
-        -ms-animation: fadeOut 4s; /* Internet Explorer */
-         -o-animation: fadeOut 4s; /* Opera < 12.1 */
-            animation: fadeOut 4s;
-}
-
-/*
-@media screen and (min-width: 600px) {
-  @-webkit-keyframes fadeInH {
-      from { height: 50px; }
-        to { height: 410px; }
-    }
-    .body-top{
-      height:410px;
-    }
-}
-*/
 
 .shadow-volume{
   -webkit-box-shadow: 30px 31px 84px 0px rgba(156,148,156,1);
   -moz-box-shadow: 30px 31px 84px 0px rgba(156,148,156,1);
   box-shadow: 30px 31px 84px 0px rgba(156,148,156,1);  
 }
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 600px) {
-  .topnav.responsive {
-    /*position: relative;*/
-  }
-  .topnav.responsive :not(:first-child) {
-    background-color:#333;
-  }   
-   .topnav.responsive a:hover{
-    background-color:#f2f2f2;
-    /*position: relative;*/
-    }
-  .topnav.responsive a.icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
 
-/* Add a background color to the top navigation */
-.topnav {
-}
-
-/* Style the links inside the navigation bar */
-.topnav a {
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-/* Hide the link that should open and close the topnav on small screens */
-.topnav .icon {
-    display: none;
-}
-
-.fixed-top{
-  padding:0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  width: 100%;
-}
 .right{
   float: right;
 } 
-.left{
-  color:grey !important;
-  font-weight: bold;
+.left{ 
   float: left;
 } 
 
-
-.tab-link{
-} 
-
-.compact-container{
-  background-color: #ffffff;    
-  overflow-y:scroll; 
-  overflow-x:hidden;
-  height:100%;
-} agm-map {
-  height: 1300px;
+.container{
+  min-height: calc(100% - 60px);
+  padding-top: 15px;
+  max-width: 100%;
+  z-index: 1;
+  max-height: calc(100% - 60px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: 0;
+  position: relative;
 }
-
-
-
-
-
-
-@media screen and (max-width: 600px) {
-  .container{
-    padding:0;
-    margin-top :0px !important;
-    padding-top: 100px;
-  }
-}
-/*.container{
-  width:100%;
-  margin-top:410px;
-  padding-top:50px;
-    
-}*/
-
-
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-
-@keyframes fadeout {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}
-
-/* Firefox < 16 */
-@-moz-keyframes fadeout {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadeout {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadeout {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes fadeout {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}
-/********/
-
-
-@keyframes fadeIn {
-    from { height: 50px; }
-    to   { height: 410px; }
-}
-
-/* Firefox < 16 */
-@-moz-keyframes fadeIn {
-    from { height: 50px; }
-    to   { height: 410px; }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadeIn {
-    from { height: 50px; }
-    to   { height: 410px; }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadeIn {
-    from { height: 50px; }
-    to   { height: 410px; }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes fadeIn {
-    from { height: 50px; }
-    to   { height: 410px; }
-}
-
-
-@keyframes fadeOut {
-    from { height: 410px; }
-    to   { height: 50px; }
-}
-
-/* Firefox < 16 */
-@-moz-keyframes fadeOut {
-    from { height: 410px; }
-    to   { height: 50px; }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadeOut {
-    from { height: 410px; }
-    to   { height: 50px; }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadeOut {
-    from { height: 410px; }
-    to   { height: 50px; }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes fadeOut {
-    from { height: 410px; }
-    to   { height: 50px; }
+::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
 }

@@ -8,6 +8,8 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 export class IndexLooperComponent implements OnInit {
   @Input() level: number;
   @Input() items: any;
+  @Input() max: number;
+  @Input() parent: Object;
 
   className= "hidden";
   display=2;
@@ -15,23 +17,12 @@ export class IndexLooperComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  this._=this;
   }
   ngOnChanges() {
-  	if (this.level<this.display){
-  		this.className="";
-  	}else{
-  		this.className="hidden";
-  	}
   }
+  
   indexSpread(e){
-  	
-  	if (this.items.level> 1){
-  		this.items.level=1;
-  	}else{
-  		this.items.level+=1;
-  	}
-  	console.log(this._.items);
+    this.className=="hidden" ? this.className="" : this.className="hidden";
   }
 
 }

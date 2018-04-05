@@ -1,38 +1,33 @@
-
 <div class="jumbotron">
-  <div class="body-top shadow-volume ">
-    <h1 class="toptitle transparent">
-      Nice to see you..
-    </h1>
-    <img class="logo transparent"  src="/assets/dragon.png" />
+  <div class="body-top shadow-volume">
+    <div class="topnav" id="myTopnav">
+      <a>
+        <img class="logo"  src="/assets/logo.png" />
+      </a>
+      <!--
+      <a href="#home">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a >Docs</a>
+      <a>Docs</a>
+      <a>Docs</a>
+      <a href="#about">About</a>
+      -->
+      <a class="icon" (click)="tooggleMenu()">&#9776;</a>
+
+    </div>
   </div>
 </div>
-
-<nav class="navbar topnav fixed-top navbar-dark bg-faded navbar-link" id="myTopnav">
-  <a class="tab-link left" href="#home">Home</a>
-  <a class="tab-link left" href="#news">News</a>
-  <a class="tab-link left" href="#contact">Contact</a>
-  <a class="tab-link left">Docs</a>
-  <a class="tab-link left">Docs</a>
-  <a href="javascript:void(0);" class="icon" (click)="tooggleMenu()">&#9776;</a>
-  <a class="tab-link right">Docs</a>
-  <a class="tab-link right" href="#about">About</a>
-</nav>
-
-<div (scroll)="onScroll($event)" class="compact-container">
-
-  <div style="text-align:center" class="">
-
-  </div>
-  <div class="container">
+<div class="container">
+  <div>
     <div class="row">
       <div class="col-sm-3">
         <app-index
-        [strct]="catIndex">
+          [strct]="catIndex">
         </app-index>
       </div>
       <div class="col-sm-6">
-        <div *ngFor="let mockPost of mockPosts; let i=index">
+        <div *ngFor="let mockPost of articles; let i=index">
           <div *ngIf="i<2">
             <app-post 
               [post]="mockPost"
@@ -40,10 +35,11 @@
             </app-post>
           </div>
         </div>
-          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" ></agm-map>
+      </div> 
+      <div class="col-sm-3">
       </div> 
     </div> 
-  </div> 
-</div> 
-
-    <app-footer></app-footer>
+  </div>
+  <app-footer>
+  </app-footer>
+</div>

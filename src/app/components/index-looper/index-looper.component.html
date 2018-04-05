@@ -1,10 +1,13 @@
-	<div *ngIf="items && items['label']" class="{{className}} label-pad">
-		<span (click)="indexSpread($event)">{{items['label']}}</span>
-		<div *ngFor="let item of items['strc']">
-	
-			<app-index-looper
-				[level]="items.level"
-				[items]="item">
-			</app-index-looper>
-		</div>
+<span class="link" (click)="indexSpread($event)">{{parent.label}}</span>
+<div class="{{className}} label-pad">
+	<div *ngFor="let item of items">
+		<app-index-looper *ngIf="(parent.value+'')==(item.value+'').slice(0,-1)
+		&& item.level==level"
+			[parent]="item"
+			[level]="level+1"
+			[items]="items"
+			[max]="max"
+			>
+		</app-index-looper>
 	</div>
+</div>

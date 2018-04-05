@@ -1,17 +1,31 @@
 export interface Post {
-  id: string;
+  id?: string;
   title: string;
   info: string;
   metadata: Array<MetaData>;
   userid: string;
-  date: string;
-  category: string;
-  subcategory1?: string;
-  subcategory2?: string;
-  subcategory3?: string;
-  subcategory4?: string;
-  subcategory5?: string;
+  createdAt: string;
+  category: Category;
+  subcategory: Array<Category>;
 }
+
+export interface Article {
+  id?: string;
+  title: string;
+  info: string;
+  metadata: Array<MetaData>;
+  userid: any;
+  createdAt: string;
+  category: Category;
+}
+
+export interface Category {
+  level: string,
+  label: string,
+  value: string,
+  createdAt?: Date
+}
+
 export interface MetaData {
   type: string;
   link: string;

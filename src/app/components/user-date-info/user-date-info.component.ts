@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-user-date-info',
   templateUrl: './user-date-info.component.html',
-  styleUrls: ['./user-date-info.component.scss']
+  styleUrls: ['./user-date-info.component.scss', './../../app.component.css']
 })
 export class UserDateInfoComponent implements OnInit {
   @Input() user: string;
@@ -12,7 +12,9 @@ export class UserDateInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  	this.dateA= new Date(parseInt(this.date));
+    if (!this.user) {
+      this.user = 'meekooloh';
+    }
   }
 
 }

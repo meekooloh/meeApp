@@ -1,12 +1,15 @@
 <div class="index-container shadow-volume">
-	<div *ngIf="strct['label']">
-		<span>{{strct.label}}</span>
-		<div *ngFor="let s of strct.strc">
-			<app-index-looper
-				[level]="strct.level"
-				[items]="s"
+	<div *ngFor="let i of index">
+		<div *ngFor="let item of i">
+			<div *ngIf="item.level==mainLevel">
+				<app-index-looper
+					[parent]="item"
+					[level]="mainLevel + 1"
+					[items]="i"
+					[max]="max"
 				>
-			</app-index-looper>
+				</app-index-looper>
+			</div>
 		</div>
 	</div>
 </div>
