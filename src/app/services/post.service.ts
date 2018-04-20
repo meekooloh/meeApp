@@ -11,12 +11,15 @@ export class PostService {
     constructor( private request : ApiService) {
     }
   
-    getAll() : Observable<Article[]>  {
-        return this.request.getItems('articles').map((response: any) => {
-            return response;
-        });
-    }
-
+    getAll(articleListInit?, articleListEnd?) : Observable<Article[]>  {
+        if (articleListInit !== undefined && articleListEnd !== undefined) {
+          return this.request.getItemsPaginated('articles', articleListInit, articleListEnd)
+            .map((response: any) => response);
+        } else {
+          return this.request.getItems('articles')
+            .map((response: any) => response);
+        }
+      }
 
     // getRoles() :Observable<Response>  {
     //  return this.request.getItems('roles').map((response: Response) => response);

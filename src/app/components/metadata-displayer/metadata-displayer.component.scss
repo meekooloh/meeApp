@@ -8,9 +8,9 @@
 
 }
 iframe{
-	  height: auto;
-	  width: auto;
-  overflow: auto
+	// height: auto;
+	width: 100%;
+  	overflow: auto
 
 /*	max-width: 640px;
 	max-height: 480px;
@@ -22,8 +22,11 @@ video{
 }
 
 .metadata-container{
-	margin: auto;
+	width: 100%;
 	margin-top: 40px;
 	margin-bottom: 40px;
 	display: table;
+}
+img {
+	width: 100%;
 }

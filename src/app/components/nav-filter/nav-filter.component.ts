@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Category } from '../../models/post';
 
 @Component({
   selector: 'app-nav-filter',
@@ -6,13 +7,10 @@ import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angu
   styleUrls: ['./nav-filter.component.scss']
 })
 export class NavFilterComponent implements OnInit {
-  @Input() cat: string;
-  @Input() cat1?: string;
-  @Input() cat2?: string;
-  @Input() cat3?: string;
-  @Input() cat4?: string;
-  @Input() cat5?: string;
+  @Input() cat: Category;
+  @Input() cats: Category[];
 
+  categories : Category[];
   c: any;
   c1: any;
   c2: any;
@@ -22,51 +20,22 @@ export class NavFilterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.categories = [];
+    for (var i = 0; i < this.cat.level; i++) {
+      if (this.cats.length > 0 ) {
+        this.categories.push(this.cats.find(c => c.level == i + 1 && c.value == String(this.cat.value).slice(0, i + 1)));
+      }
+    }
+    console.log(this.categories);
   }
   ngOnChanges(){
-    if (this.cat5!= undefined){
-      this.c5={
-        'label':this.cat5
-      }    
-    }
-    if (this.cat4!= undefined){
-      this.c4={
-        'label':this.cat4
-      }    
-    }
-    if (this.cat3!= undefined){
-      this.c3={
-        'label':this.cat3
-      }    
-    }
-    if (this.cat2!= undefined){
-      this.c2={
-        'label':this.cat2
-      }
-    }
-    if (this.cat1!= undefined){
-      this.c1={
-        'label':this.cat1
-      }
-    }
     if (this.cat!= undefined){
       this.c={
         'label':this.cat
       }
     }     
-    if (this.cat5!= undefined){
-      this.c5['class']="selected";
-    }else if (this.cat4!= undefined){
-      this.c4['class']="selected";
-    }else if (this.cat3!= undefined){
-      this.c3['class']="selected";
-    }else if (this.cat2!= undefined){
-      this.c2['class']="selected";
-    }else if (this.cat1!= undefined){
-      this.c1['class']="selected";
-    }else if (this.cat!= undefined){
+    if (this.cat!= undefined){
       this.c['class']="selected";
     }
-   
   }
 }

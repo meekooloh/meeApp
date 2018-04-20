@@ -23,22 +23,27 @@
     <div class="row">
       <div class="col-sm-3">
         <app-index
-          [strct]="catIndex">
+          [strct]="categories">
         </app-index>
       </div>
       <div class="col-sm-6">
-        <div *ngFor="let mockPost of articles; let i=index">
-          <div *ngIf="i<2">
-            <app-post 
-              [post]="mockPost"
-            >
-            </app-post>
-          </div>
+        <div *ngFor="let article of articles">
+          <app-post 
+            [post]="article"
+            [categories]="categories"
+          >
+          </app-post>
         </div>
       </div> 
       <div class="col-sm-3">
       </div> 
     </div> 
+  </div>
+  <div *ngIf="!loading && ITEMS_STEP > 0">
+    <button (click)="more()">more...</button>
+</div>
+<div *ngIf="!!loading">
+    <img class="logo"  src="/assets/images/Loading_icon.gif"/>
   </div>
   <app-footer>
   </app-footer>

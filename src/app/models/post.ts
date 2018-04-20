@@ -20,7 +20,7 @@ export interface Article {
 }
 
 export interface Category {
-  level: string,
+  level: number,
   label: string,
   value: string,
   createdAt?: Date

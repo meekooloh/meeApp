@@ -1,4 +1,4 @@
-<div *ngIf="link">
+<div *ngIf="link" (window:resize)="onResize($event)">
 	<div *ngFor="let m of link" class="metadata-container">
 		<div *ngIf="m.type=='image'" class="metadata-picture">
 			<img src="{{m.link}}">
@@ -10,8 +10,8 @@
 			</video>
 		</div>
 		<div *ngIf="m.type=='youtube'" class="metadata-youtube">
-			<iframe 
-			[src]="m.link | safe">
+			<iframe #youtube
+				[src]="m.link | safe">
 			</iframe>
 		</div>		
 	</div>

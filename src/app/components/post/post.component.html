@@ -1,11 +1,7 @@
 <div class="post-container"  *ngIf="post">
 	<app-nav-filter
 		[cat]="post.category"
-		[cat1]="post.subcategory1"
-		[cat2]="post.subcategory2"
-		[cat3]="post.subcategory3"
-		[cat4]="post.subcategory4"
-		[cat5]="post.subcategory5"
+		[cats]="categories"
 	>
 	</app-nav-filter>
 	<div class="post-header">

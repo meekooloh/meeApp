@@ -13,7 +13,9 @@ export class ApiService {
   constructor(private request: RequestService) {
     this.host = config.AppConfig.api.endpoint;
   }
-
+  getItemsPaginated(type: string, init: number, end: number): Observable<Response> {
+    return this.request.get(`${this.host}/${type}/${init}/${end}`);
+  }
   getItem(type: string, itemId: any): Observable<Response> {
     return this.request.get(`${this.host}/${type}/${itemId}`);
   }
