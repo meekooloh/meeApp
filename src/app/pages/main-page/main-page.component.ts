@@ -1,5 +1,5 @@
 import { Component ,OnInit, Type, ViewChild, ViewEncapsulation,ChangeDetectionStrategy } from '@angular/core';
-import { Router  ,RouterLink,RouterModule ,Routes} from '@angular/router';
+import { Router, RouterLink, RouterModule, Routes } from '@angular/router';
 import { routing } from './../../app.routing';
 import { TodoService } from './../../services/todo.service';
 

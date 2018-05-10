@@ -11,13 +11,23 @@ export class PostService {
     constructor( private request : ApiService) {
     }
   
-    getAll(articleListInit?, articleListEnd?) : Observable<Article[]>  {
+    getAll(articleListInit?, articleListEnd?, category?) : Observable<Article[]>  {
         if (articleListInit !== undefined && articleListEnd !== undefined) {
-          return this.request.getItemsPaginated('articles', articleListInit, articleListEnd)
+          if (!!category && category !== undefined) {
+            return this.request.getItemsPaginatedFilter('articles', articleListInit, articleListEnd, category)
             .map((response: any) => response);
+          } else {
+            return this.request.getItemsPaginated('articles', articleListInit, articleListEnd)
+            .map((response: any) => response);
+          }
         } else {
-          return this.request.getItems('articles')
-            .map((response: any) => response);
+          if (!!category && category !== undefined) {
+            return this.request.getItemsFilter('articles', category)
+              .map((response: any) => response);
+          } else {
+            return this.request.getItems('articles')
+              .map((response: any) => response);
+          }
         }
       }
 

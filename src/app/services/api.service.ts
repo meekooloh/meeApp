@@ -19,6 +19,12 @@ export class ApiService {
   getItem(type: string, itemId: any): Observable<Response> {
     return this.request.get(`${this.host}/${type}/${itemId}`);
   }
+  getItemsPaginatedFilter(type: string, init: number, end: number, category: string): Observable<Response> {
+    return this.request.get(`${this.host}/${type}/${init}/${end}?category=${category}`);
+  }
+  getItemFilter(type: string, itemId: any, category:string): Observable<Response> {
+    return this.request.get(`${this.host}/${type}/${itemId}?category=${category}`);
+  }
 
   getItems(type: string): Observable<Response> {
     return this.request.get(`${this.host}/${type}`);

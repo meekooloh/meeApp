@@ -4,37 +4,35 @@ import { Directive, Input, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AgmCoreModule } from '@agm/core';
-import { WindowService } from './services/window.service';
-import { TodoService } from './services/todo.service';
-import { PostService } from './services/post.service';
-import { CategoryService } from './services/category.service';
+import { WindowService } from './../../services/window.service';
+import { TodoService } from './../../services/todo.service';
+import { PostService } from './../../services/post.service';
+import { CategoryService } from './../../services/category.service';
 
-import { GeolocationService } from '../app/services/geolocation.service';
-import { PostComponent } from './components/post/post.component';
-import { Article, Post, Category, MetaData } from './models/post';
-
-import { ComponentsModule } from './components/components.module'
+import { GeolocationService } from '../../services/geolocation.service';
+import { PostComponent } from './../../components/post/post.component';
+import { Article, Post, Category, MetaData } from './../../models/post';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'list',
+    templateUrl: './list.component.html',
+    styleUrls: ['./list.component.css']
 })
-export class AppComponent implements OnInit {
-
+export class ListComponent implements OnInit {
     public articles : Array<Article>;
-    public categories : Array<Category>;
+    public categories : Array<Category> = [];
     public ITEMS_STEP : number = 5;
     public articleListInit : number;
     public articleListEnd : number;
-
+    private category: string;
     loading : boolean = false;
     constructor(public windowService: WindowService,
-                public postService: PostService,
-                private categoryService: CategoryService,
-                public todoService: TodoService,
-                private route: ActivatedRoute,
-                private router: Router) {
+              public postService: PostService,
+              private categoryService: CategoryService,
+              public todoService: TodoService,
+              private route: ActivatedRoute,
+              private router: Router) {
 
     }
 
@@ -48,21 +46,29 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(){
+        this.route.queryParams.subscribe(queryParams => {
+            this.getCategories();
+            this.getList(queryParams.category);
+        });
+    }
 
+    getCategories() {
         this.categoryService.getAll().subscribe((categories) => {
             this.categories = categories;
+            this.getList(this.category);
         });
+    }
+    getList(category?: string) {
+        this.category = category;
+        let categoryFilter: Category = this.categories.find( c => c.label === category);
         this.articleListInit = 0;
         this.articleListEnd = this.ITEMS_STEP;
-        this.postService.getAll(this.articleListInit, this.articleListEnd).subscribe((articles) => {
+        this.postService.getAll(this.articleListInit, this.articleListEnd, categoryFilter ? categoryFilter['_id'] : null).subscribe((articles) => {
             this.articles = articles;
             this.articleListInit = this.articleListInit + this.ITEMS_STEP;
             this.articleListEnd = this.articleListEnd + this.ITEMS_STEP;
         });
-
-         
     }
-
     more() {
         this.loading = true;
         this.postService.getAll(this.articleListInit, this.articleListEnd).subscribe((response) => {
@@ -79,4 +85,4 @@ export class AppComponent implements OnInit {
         });
     }
 
-}
+    }

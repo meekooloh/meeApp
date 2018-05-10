@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { IndexComponent } from './index/index.component';
 import { MomentModule } from 'angular2-moment/moment.module';
 import { IndexLooperComponent } from './index-looper/index-looper.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { IndexLooperComponent } from './index-looper/index-looper.component';
     FooterComponent,
     IndexComponent,
     IndexLooperComponent,
+  	ListComponent,
 
   ],
   declarations: [
@@ -40,6 +42,7 @@ import { IndexLooperComponent } from './index-looper/index-looper.component';
   	FooterComponent,
   	IndexComponent,
   	IndexLooperComponent,
+  	ListComponent,
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
