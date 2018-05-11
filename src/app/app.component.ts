@@ -22,19 +22,13 @@ import { ComponentsModule } from './components/components.module'
 })
 export class AppComponent implements OnInit {
 
-    public articles : Array<Article>;
-    public categories : Array<Category>;
-    public ITEMS_STEP : number = 5;
-    public articleListInit : number;
-    public articleListEnd : number;
+    static ITEMS_STEP: number = 5;
+    static PENE: number = 11115;
+    public categories : Array<Category> = [];
 
-    loading : boolean = false;
     constructor(public windowService: WindowService,
-                public postService: PostService,
-                private categoryService: CategoryService,
-                public todoService: TodoService,
-                private route: ActivatedRoute,
-                private router: Router) {
+        private categoryService: CategoryService
+    ) {
 
     }
 
@@ -48,35 +42,12 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(){
+        this.getCategories();
+    }
 
+    getCategories() {
         this.categoryService.getAll().subscribe((categories) => {
             this.categories = categories;
         });
-        this.articleListInit = 0;
-        this.articleListEnd = this.ITEMS_STEP;
-        this.postService.getAll(this.articleListInit, this.articleListEnd).subscribe((articles) => {
-            this.articles = articles;
-            this.articleListInit = this.articleListInit + this.ITEMS_STEP;
-            this.articleListEnd = this.articleListEnd + this.ITEMS_STEP;
-        });
-
-         
     }
-
-    more() {
-        this.loading = true;
-        this.postService.getAll(this.articleListInit, this.articleListEnd).subscribe((response) => {
-            this.articles = this.articles.concat(response);
-            if (response.length < this.ITEMS_STEP) {
-                this.ITEMS_STEP = 0;
-            } else {
-                this.articleListInit = this.articleListInit + this.ITEMS_STEP;
-                this.articleListEnd = this.articleListEnd + this.ITEMS_STEP;
-            }
-            this.loading = false;
-        }, error => {
-            this.loading = false;
-        });
-    }
-
 }

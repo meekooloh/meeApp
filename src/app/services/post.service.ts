@@ -34,14 +34,13 @@ export class PostService {
     // getRoles() :Observable<Response>  {
     //  return this.request.getItems('roles').map((response: Response) => response);
     // }
-    /*
-    getById(id: string):Observable<any> {
-      return this._http
-                 .get(TodoService.ENDPOINT.replace(/:id/, id))
-                 .map((r) => r.json());
+
+    getById(id: string):Observable<Article> {
+      return this.request.getItem('articles', id)
+              .map((response: any) => response);
     }
   
-
+/*
   
     remove(id: string): Observable<any> {
       return this._http

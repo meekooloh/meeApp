@@ -8,12 +8,16 @@ import { Post, Category } from './../models/post';
 @Injectable()
 export class CategoryService {
   
+    static categories: Category[];
     constructor( private request : ApiService) {
     }
   
     getAll() : Observable<Category[]>  {
         return this.request.getItems('category')
-            .map((response: any) => response);
+                .map((response: any) => {
+            CategoryService.categories = response;
+            return response
+        });
 
     }
 
@@ -22,5 +26,6 @@ export class CategoryService {
                  .map((r) => r.json());
     }
 
-  }
+}
+    
   

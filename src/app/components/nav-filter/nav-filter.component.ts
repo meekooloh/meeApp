@@ -13,18 +13,16 @@ export class NavFilterComponent implements OnInit {
 
     categories : Category[];
     c: any;
-    c1: any;
-    c2: any;
-    c3: any;
-    c4: any;
-    c5: any;
-    constructor() { }
+
+    constructor(private router: Router) { }
 
     ngOnInit() {
         this.categories = [];
-        for (var i = 0; i < this.cat.level; i++) {
-            if (this.cats.length > 0 ) {
-                this.categories.push(this.cats.find(c => c.level == i + 1 && c.value == String(this.cat.value).slice(0, i + 1)));
+        if (this.cat) {
+            for (var i = 0; i < this.cat.level; i++) {
+                if (this.cats.length > 0 ) {
+                    this.categories.push(this.cats.find(c => c.level == i + 1 && c.value == String(this.cat.value).slice(0, i + 1)));
+                }
             }
         }
     }
@@ -37,5 +35,11 @@ export class NavFilterComponent implements OnInit {
         if (this.cat!= undefined){
             this.c['class']="selected";
         }
+    }
+
+
+    filterItem(e) {
+      this.router.navigate(['/list'], { queryParams : {category: e.target.text }});
+      e.stopPropagation();
     }
 }

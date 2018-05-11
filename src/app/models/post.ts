@@ -6,7 +6,6 @@ export interface Post {
   userid: string;
   createdAt: string;
   category: Category;
-  subcategory: Array<Category>;
 }
 
 export interface Article {

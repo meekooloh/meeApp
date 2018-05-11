@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
+import { PostComponent } from './components/post/post.component';
 
 
 //var str     = "reset?token=J&return_url=/page/new";
@@ -21,9 +22,9 @@ export const appRoutes = [
     //{ path: 'home',component: MainPageComponent, meta:{caption:"home",range:"global"}  },
  
     // otherwise redirect to home
-    { path: '', component: AppComponent, pathMatch: "full"},
+    { path: '', component: ListComponent, pathMatch: "full"},
     { path: 'list', component: ListComponent},
-    { path: 'articles/:id', component: ListComponent, pathMatch: "full"},
+    { path: 'articles/:id', component: PostComponent},
     { path: '**', redirectTo: '/' , meta:{caption:"anything else "} }
 ];
  

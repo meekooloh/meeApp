@@ -2,18 +2,33 @@
 @import '../../styles/colors';
 
 .post-container{
+    position: relative;
+    overflow: hidden;
     background: white;
     border: 2px solid grey;
     border-radius: 3px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
+
+.post-container-list {
+    max-height: 700px;
+    transition: 1s ease;
+}
+.post-container-list:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 1s ease;
+    z-index: 1;
+}
+
 .post-header{
     display: inline-block;
     width: calc(100% - 60px);
     height:70px;
     margin:30px;
     border-bottom:3px solid grey;
-
 
 }
 .post-title{
@@ -25,4 +40,19 @@
 }
 span{
 	color: $normal-text;
+}
+.post-content-plus {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    display: none;
+    background: white;
+    background: linear-gradient(white, #d6d6d6);
+    text-align: center;
+    line-height: 50px;
+    font-size: 50px;
+}
+.show {
+    display: block !important;
 }

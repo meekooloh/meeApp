@@ -1,8 +1,9 @@
 
 <div class="filters-container shadow">
 	<div *ngFor="let category of categories" class="filter-container link">
-		<span [ngClass]="category.label === cat.label ? 'selected' : ''">
-	  		{{category.label}}
+		<span [ngClass]="category.label === cat.label ? 'selected' : ''" 
+			(click)="filterItem($event)">
+			<a>{{category.label}}</a>
 	  	</span>
 	</div>
 </div>

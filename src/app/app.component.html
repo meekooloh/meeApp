@@ -1,8 +1,8 @@
 <div class="jumbotron">
   <div class="body-top shadow-volume">
     <div class="topnav" id="myTopnav">
-      <a>
-        <img class="logo"  src="/assets/logo.png" />
+      <a  href="/">
+        <img class="logo"  src="/assets/logo.png"/>
       </a>
       <!--
       <a href="#home">Home</a>
@@ -19,7 +19,27 @@
   </div>
 </div>
 <div class="container">
-  <list></list>
-  <app-footer>
-  </app-footer>
+  <div>
+    <div class="row">
+      <div class="col-sm-3">
+        <app-index
+          [strct]="categories">
+        </app-index>
+      </div>
+      <div class="col-sm-6">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="col-sm-3">
+      </div> 
+    </div> 
+    <div class="row">
+      <div class="col-sm-12">
+        <app-footer>
+        </app-footer>
+      </div> 
+    </div> 
+  </div>
+  <div *ngIf="!!loading">
+    <img class="logo"  src="/assets/images/Loading_icon.gif"/>
+  </div>
 </div>

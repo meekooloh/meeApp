@@ -13,28 +13,27 @@ import { GeolocationService } from '../../services/geolocation.service';
 import { PostComponent } from './../../components/post/post.component';
 import { Article, Post, Category, MetaData } from './../../models/post';
 import { Observable } from 'rxjs/Observable';
+import { AppComponent } from '../../app.component';
 
 @Component({
     selector: 'list',
     templateUrl: './list.component.html',
-    styleUrls: ['./list.component.css']
+    styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
     public articles : Array<Article>;
     public categories : Array<Category> = [];
-    public ITEMS_STEP : number = 5;
+    public ITEMS_STEP : number = AppComponent.ITEMS_STEP;
     public articleListInit : number;
     public articleListEnd : number;
     private category: string;
     loading : boolean = false;
     constructor(public windowService: WindowService,
-              public postService: PostService,
-              private categoryService: CategoryService,
-              public todoService: TodoService,
-              private route: ActivatedRoute,
-              private router: Router) {
-
-    }
+            public postService: PostService,
+            private categoryService: CategoryService,
+            public todoService: TodoService,
+            private route: ActivatedRoute,
+            private router: Router) { }
 
     tooggleMenu() {
         var x = this.windowService.window.document.getElementById("myTopnav");
@@ -46,8 +45,8 @@ export class ListComponent implements OnInit {
     }
 
     ngOnInit(){
+        this.getCategories();
         this.route.queryParams.subscribe(queryParams => {
-            this.getCategories();
             this.getList(queryParams.category);
         });
     }
@@ -55,9 +54,9 @@ export class ListComponent implements OnInit {
     getCategories() {
         this.categoryService.getAll().subscribe((categories) => {
             this.categories = categories;
-            this.getList(this.category);
         });
     }
+
     getList(category?: string) {
         this.category = category;
         let categoryFilter: Category = this.categories.find( c => c.label === category);
@@ -71,9 +70,10 @@ export class ListComponent implements OnInit {
     }
     more() {
         this.loading = true;
-        this.postService.getAll(this.articleListInit, this.articleListEnd).subscribe((response) => {
+        let categoryFilter: Category = this.categories.find( c => c.label === this.category);
+        this.postService.getAll(this.articleListInit, this.articleListEnd, categoryFilter ? categoryFilter['_id'] : null).subscribe((response) => {
             this.articles = this.articles.concat(response);
-            if (response.length < this.ITEMS_STEP) {
+            if (response.length < AppComponent.ITEMS_STEP) {
                 this.ITEMS_STEP = 0;
             } else {
                 this.articleListInit = this.articleListInit + this.ITEMS_STEP;
@@ -85,4 +85,4 @@ export class ListComponent implements OnInit {
         });
     }
 
-    }
+}

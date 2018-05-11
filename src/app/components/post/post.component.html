@@ -1,29 +1,35 @@
-<div class="post-container"  *ngIf="post">
-	<app-nav-filter
-		[cat]="post.category"
-		[cats]="categories"
-	>
-	</app-nav-filter>
-	<div class="post-header">
-		<div class="post-title">
-			<h1>
-		  		{{post.title}}
-			</h1>
-		</div>
-		<app-user-date-info
-			[user]="post.userid"
-			[date]="post.createdAt"
-			>
-		</app-user-date-info>
-	</div>
-	<div class="post-content-container">
-
-		<span>
-			{{post.info}}
-		</span>
-		<app-metadata-displayer
-			[link]="post.metadata"
+<div class="post-container" *ngIf="post"
+		(click)="displayPost($event)">
+	<div #postitem>
+		<app-nav-filter
+			[cat]="post.category"
+			[cats]="categories"
 		>
-		</app-metadata-displayer>
+		</app-nav-filter>
+		<div class="post-header">
+			<div class="post-title">
+				<h1>
+					{{post.title}}
+				</h1>
+			</div>
+			<app-user-date-info
+				[user]="post.userid"
+				[date]="post.createdAt"
+				>
+			</app-user-date-info>
+		</div>
+		<div class="post-content-container">
+
+			<span>
+				{{post.info}}
+			</span>
+			<app-metadata-displayer
+				[link]="post.metadata"
+			>
+			</app-metadata-displayer>
+		</div>
+	</div>
+	<div class="post-content-plus">
+		<p>...</p>
 	</div>
 </div>
