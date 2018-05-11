@@ -23,6 +23,8 @@ import { TRANSLATION_PROVIDERS }   from './translate/translation';
 import { MomentModule } from 'angular2-moment/moment.module';
 
 import { routing } from "./app.routing";
+import { PageComponent } from './components/page/page.component';
+import { PageService } from './services/page.service';
 
 @NgModule({
   imports: [
@@ -41,9 +43,11 @@ import { routing } from "./app.routing";
   ],
   declarations: [
     AppComponent,
+    PageComponent,
   ],
   providers: [
     GeolocationService,
+    PageService,
     WindowService,
     PostService,
     CategoryService,

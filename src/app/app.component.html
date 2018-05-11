@@ -7,13 +7,15 @@
       <!--
       <a href="#home">Home</a>
       <a href="#news">News</a>
-      <a href="#contact">Contact</a>
+      -->
+          <a *ngFor="let route of routes" [routerLink]="[route.route]">{{route.label | capitalize }}</a>
+        
+      <!--
       <a >Docs</a>
       <a>Docs</a>
       <a>Docs</a>
-      <a href="#about">About</a>
       -->
-      <a class="icon" (click)="tooggleMenu()">&#9776;</a>
+      <a id="toogleMenu" class="icon" (click)="tooggleMenu()">&#9776;</a>
 
     </div>
   </div>
