@@ -109,7 +109,8 @@ export class RequestService {
   }*/
 
   private extractData(res: Response): any {
-    let body: any = (res.status !== 204 && !!res['_body'] ? res.json() : {status:res.status, data:res['_body']});
+    let body: any = (res.status !== 204 && !!res['_body'] ?
+        res.json() : {status:res.status, data:res['_body']});
     return body || { };
   }
 

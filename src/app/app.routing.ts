@@ -9,7 +9,7 @@ import { PageComponent } from './components/page/page.component';
 
 //var str     = "reset?token=J&return_url=/page/new";
 
-export const appRoutes = [
+export var appRoutes = [
     //{ path: '', component: MainPageComponent, meta: {caption:"home"},canActivate: [AuthGuard] },
     
 

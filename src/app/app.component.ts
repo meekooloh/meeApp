@@ -16,6 +16,7 @@ import { Article, Post, Category, MetaData } from './models/post';
 import { ComponentsModule } from './components/components.module'
 import { RouteModel } from './models/route';
 import { PageComponent } from './components/page/page.component';
+import { appRoutes } from 'app/app.routing';
 
 @Component({
   selector: 'app-root',
@@ -34,7 +35,8 @@ export class AppComponent implements OnInit {
     static ITEMS_STEP: number = 5;
     public categories : Array<Category> = [];
 
-    routes : Array<RouteModel>;
+    routes : Array<RouteModel> = [];
+    actualRoute: string;
 
     constructor(public windowService: WindowService,
         private router : Router,
@@ -44,7 +46,12 @@ export class AppComponent implements OnInit {
         this.router.events
             .subscribe((event) => {
                 this.closeMenu();
-        });
+                if (/^\/([a-zA-Z0-9_-]+)$/.test(event['url'])) {
+                    this.actualRoute = event['url'];
+                } else {
+                    this.actualRoute = undefined;
+                }
+            });
     }
 
     closeMenu() {
@@ -74,16 +81,33 @@ export class AppComponent implements OnInit {
     }
 
     getRoutes() {
-        console.log(this.router)
-        this.pageService.getRoutes().subscribe(res => {
-            this.routes = res;
-            res.forEach( route => {
-                this.router.config.push
-                this.router.config.push({
+        if (this.routes.length > 0) {
+            this.routes.forEach( route => {
+                let newItem = {
                     path: route.route,
                     component: PageComponent
+                };
+                this.router.config.splice(0,0, newItem);
+            });
+            if (this.actualRoute) {
+                this.router.navigate([this.actualRoute]);
+            }
+        } else {
+            this.pageService.getRoutes().subscribe(res => {
+                this.routes = res;
+                res.forEach( route => {
+                    let newItem = {
+                        path: route.route,
+                        component: PageComponent
+                    };
+                    this.router.config.splice(0,0, newItem);
+                    
                 });
+                if (this.actualRoute) {
+                    this.router.navigate([this.actualRoute]);
+                }
             })
-        })
+        }
     }
+
 }

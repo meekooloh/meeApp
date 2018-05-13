@@ -18,6 +18,14 @@ export class PageService {
             .map((response: any) => response);
     }
 
+    getPageById(id: string):Observable<any> {
+        return this.request.getItem('pages', id)
+                .map((response: any) => response);
+    }
+    getPageByRoute(route: string):Observable<any> {
+        return this.request.getItemFilterRoute('pages', route)
+                .map((response: any) => response);
+    }
     /*
     getById(id: string):Observable<Article> {
       return this.request.getItem('articles', id)

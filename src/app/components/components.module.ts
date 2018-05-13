@@ -14,6 +14,7 @@ import { IndexComponent } from './index/index.component';
 import { MomentModule } from 'angular2-moment/moment.module';
 import { IndexLooperComponent } from './index-looper/index-looper.component';
 import { ListComponent } from './list/list.component';
+import { PageComponent } from 'app/components/page/page.component';
 
 @NgModule({
   imports: [
@@ -30,8 +31,12 @@ import { ListComponent } from './list/list.component';
     FooterComponent,
     IndexComponent,
     IndexLooperComponent,
-  	ListComponent,
+    ListComponent,
+    PageComponent
 
+  ],
+  entryComponents: [
+    PageComponent
   ],
   declarations: [
     TranslatePipe,
@@ -43,7 +48,7 @@ import { ListComponent } from './list/list.component';
   	IndexComponent,
   	IndexLooperComponent,
   	ListComponent,
-
+    PageComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

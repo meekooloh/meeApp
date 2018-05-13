@@ -26,6 +26,10 @@ export class ApiService {
     return this.request.get(`${this.host}/${type}/${itemId}?category=${category}`);
   }
 
+  getItemFilterRoute(type: string, route:string): Observable<Response> {
+    return this.request.get(`${this.host}/${type}?route=${route}`);
+  }
+
   getItems(type: string): Observable<Response> {
     return this.request.get(`${this.host}/${type}`);
   }

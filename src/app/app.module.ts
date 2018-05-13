@@ -42,8 +42,7 @@ import { PageService } from './services/page.service';
     Ng2CarouselamosModule,
   ],
   declarations: [
-    AppComponent,
-    PageComponent,
+    AppComponent
   ],
   providers: [
     GeolocationService,
