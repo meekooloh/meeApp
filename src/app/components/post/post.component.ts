@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, AfterViewChecked, OnChanges } from '@angular/core';
 import { Post, Category } from './../../models/post';
 import { MetadataDisplayerComponent } from './../metadata-displayer/metadata-displayer.component';
 import { NavFilterComponent } from './../nav-filter/nav-filter.component';
@@ -7,12 +7,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PostService } from '../../services/post.service';
 import { CategoryService } from '../../services/category.service';
 import { WindowService } from '../../services/window.service';
+
 @Component({
     selector: 'app-post',
     templateUrl: './post.component.html',
     styleUrls: ['./post.component.scss']
 })
-export class PostComponent implements OnInit, AfterViewChecked {
+export class PostComponent implements OnInit, OnChanges, AfterViewChecked {
     @ViewChild('postitem') postitem;
 
     @Input() post: Post;
@@ -43,7 +44,12 @@ export class PostComponent implements OnInit, AfterViewChecked {
         });
     }
 
-
+    ngOnChanges() {
+        this.splittedMetadata = this.post.info.split('<metadata ');
+        this.post.metadata.forEach( meta => {
+            this.metadata[meta['_id']] = meta;
+        });
+    }
     getCategories() {
         this.categoryService.getAll().subscribe((categories) => {
             this.categories = categories;
