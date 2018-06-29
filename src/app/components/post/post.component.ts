@@ -17,7 +17,9 @@ export class PostComponent implements OnInit, AfterViewChecked {
 
     @Input() post: Post;
     @Input() categories: Category[];
-  
+    splittedMetadata: string[];
+    metadata: any = {};
+
     constructor(private router: Router,
             private windowService: WindowService,
             private categoryService: CategoryService,
@@ -32,6 +34,10 @@ export class PostComponent implements OnInit, AfterViewChecked {
                 this.postService.getById(queryParams.id)
                 .subscribe(post => {
                   this.post = post;
+                  this.splittedMetadata = post.info.split('<metadata ');
+                  post.metadata.forEach( meta => {
+                    this.metadata[meta['_id']] = meta;
+                  })
                 });
             }
         });

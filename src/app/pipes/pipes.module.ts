@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SafePipe } from './safe.pipe';
 import { CapitalizePipe } from './capitalize.pipe';
+import { AddMetasPipe } from './add-metas.pipe';
 
 @NgModule({
   imports: [
@@ -9,10 +10,12 @@ import { CapitalizePipe } from './capitalize.pipe';
   ],
   declarations: [
     SafePipe,
-    CapitalizePipe
+    CapitalizePipe,
+    AddMetasPipe
   ],exports:[
     SafePipe,
-    CapitalizePipe
+    CapitalizePipe,
+    AddMetasPipe
   ]
 })
 export class PipesModule { }
